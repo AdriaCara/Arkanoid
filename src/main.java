@@ -13,7 +13,7 @@ public class main {
 	public void principal() {
 		
 		JFrame frame = new JFrame("Arkanoid");
-		frame.setSize(300, 300);
+		frame.setSize(600, 600);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
