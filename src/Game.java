@@ -13,6 +13,7 @@ public class Game extends JPanel{
 	Ball ball = new Ball(this);
 	Racquet racquet =  new Racquet(this);
 	int Ballspeed = 1;
+	int RacquetSpeed = 2;
 	
 	private int getScore() {
 		
