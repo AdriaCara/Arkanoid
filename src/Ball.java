@@ -20,31 +20,38 @@ public class Ball extends JPanel{
 
 	void move() {
 		
+		boolean changeDirection = true;
+		
 		if (x + xa < 0){
 			
-			xa = 1;
+			xa = game.Ballspeed;
 			
-		}
-		if (x + xa > game.getWidth() - DIAMETER) {
+		} else if (x + xa > game.getWidth() - DIAMETER) {
 			
-			xa = -1;
+			xa = -game.Ballspeed;
 			
-		}
-		
-		if (y + ya < 0) {
+		} else if (y + ya < 0) {
 			
-			ya = 1;
+			ya = game.Ballspeed;
 			
-		}
-		if (y + ya > game.getHeight() - DIAMETER)  {
+		} else if (y + ya > game.getHeight() - DIAMETER)  {
 			
 			game.gameOver();
 			
-		}
-		if (collision()) {
+		} else if (collision()) {
 			
-			ya = -1;
+			ya = -game.Ballspeed;
 			y = game.racquet.getTopY() - DIAMETER;
+			
+		} else {
+			
+			changeDirection = false;
+			
+		}
+		
+		if (changeDirection) {
+			
+			Sounds.BallSound.play();
 			
 		}
 		
@@ -61,7 +68,7 @@ public class Ball extends JPanel{
 	
 	public void paint (Graphics2D g) {
 		
-		g.fillOval(x, y, 30, 30);
+		g.fillOval(x, y, DIAMETER, DIAMETER);
 		
 	}
 	

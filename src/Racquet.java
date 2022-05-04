@@ -9,6 +9,7 @@ public class Racquet extends JPanel{
 	private static final int Y = 330;
 	private static final int WIDTH = 60;
 	private static final int HEIGHT = 10;
+	private static final int RacquetSpeed = 2;
 	int x = 0;
 	int xa = 0;
 	private Game game;
@@ -45,13 +46,13 @@ public class Racquet extends JPanel{
 		
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			
-			xa = -2;
+			xa = -RacquetSpeed;
 			
 		}
 		
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			
-			xa = 2;
+			xa = RacquetSpeed;
 			
 		}
 		
