@@ -56,7 +56,7 @@ public class Game extends JPanel{
 		ball.paint(g2d);
 		racquet.paint(g2d);
 		
-		g2d.setColor(Color.gray);
+		g2d.setColor(Color.red);
 		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
 		g2d.drawString(String.valueOf(getScore()), 10, 30);
 	}

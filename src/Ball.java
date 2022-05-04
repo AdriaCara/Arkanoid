@@ -42,6 +42,7 @@ public class Ball extends JPanel{
 			
 			ya = -game.Ballspeed;
 			y = game.racquet.getTopY() - DIAMETER;
+			game.Ballspeed++;
 			
 		} else {
 			
