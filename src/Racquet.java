@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Racquet extends JPanel{
 
+	private static final int Y = 330;
+	private static final int WIDTH = 60;
+	private static final int HEIGHT = 10;
 	int x = 0;
 	int xa = 0;
 	private Game game;
@@ -18,7 +21,7 @@ public class Racquet extends JPanel{
 	
 	public void move() {
 		
-		if (x + xa > 0 &&  x + xa < game.getWidth() - 60) {
+		if (x + xa > 0 &&  x + xa < game.getWidth() - WIDTH) {
 			
 			x = x + xa;
 			
@@ -28,7 +31,7 @@ public class Racquet extends JPanel{
 	
 	public void paint(Graphics2D g) {
 		
-		g.fillRect(x, 330, 60, 10);
+		g.fillRect(x, Y, WIDTH, HEIGHT);
 		
 	}
 	
@@ -51,6 +54,18 @@ public class Racquet extends JPanel{
 			xa = 2;
 			
 		}
+		
+	}
+	
+	public Rectangle getBounds() {
+		
+		return new Rectangle(x, Y, WIDTH, HEIGHT);
+		
+	}
+	
+	public int getTopY()  {
+		
+		return Y - HEIGHT;
 		
 	}
 	
