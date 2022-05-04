@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -8,8 +9,16 @@ import java.awt.geom.Ellipse2D;
 @SuppressWarnings("serial")
 public class Game extends JPanel{
 	
+	
 	Ball ball = new Ball(this);
 	Racquet racquet =  new Racquet(this);
+	int Ballspeed = 1;
+	
+	private int getScore() {
+		
+		return Ballspeed - 1;
+		
+	}
 	
 	public Game() {
 		addKeyListener(new KeyListener() {
@@ -28,6 +37,7 @@ public class Game extends JPanel{
 			}
 		});
 		setFocusable(true);
+		Sounds.BgSound.loop();
 	}
 	
 	private void move() {
@@ -45,6 +55,19 @@ public class Game extends JPanel{
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		ball.paint(g2d);
 		racquet.paint(g2d);
+		
+		g2d.setColor(Color.red);
+		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
+		g2d.drawString(String.valueOf(getScore()), 10, 30);
+	}
+	
+	public void gameOver() {
+		
+		Sounds.BgSound.stop();
+		Sounds.GameOverSound.play();
+		JOptionPane.showMessageDialog(this, "your score is: " + getScore(), "Game Over", JOptionPane.YES_NO_OPTION);
+		System.exit(ABORT);
+		
 	}
 	
 	public static void StartGame() throws InterruptedException {
