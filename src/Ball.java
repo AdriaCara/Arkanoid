@@ -6,10 +6,10 @@ import java.awt.geom.Ellipse2D;
 public class Ball extends JPanel{
 	
 	private static final int DIAMETER = 30;
-	int x = 0;
-	int y = 0;
-	int xa = 1;
-	int ya = 1;
+	double x = 105;
+	double y = 105;
+	double xa = 1;
+	double ya = 1;
 	private Game game;
 	
 	public Ball(Game game) {
@@ -42,8 +42,8 @@ public class Ball extends JPanel{
 			
 			ya = -game.Ballspeed;
 			y = game.racquet.getTopY() - DIAMETER;
-			game.Ballspeed ++;
-			game.RacquetSpeed ++;
+			game.Ballspeed += 0.1;
+			game.RacquetSpeed += 0.1;
 			
 		} else {
 			
@@ -70,13 +70,13 @@ public class Ball extends JPanel{
 	
 	public void paint (Graphics2D g) {
 		
-		g.fillOval(x, y, DIAMETER, DIAMETER);
+		g.fillOval((int)x, (int)y, DIAMETER, DIAMETER);
 		
 	}
 	
 	public Rectangle getBounds() {
 		
-		return new Rectangle(x, y, DIAMETER, DIAMETER);
+		return new Rectangle((int)x, (int)y, DIAMETER, DIAMETER);
 		
 	}
 

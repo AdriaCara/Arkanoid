@@ -12,12 +12,13 @@ public class Game extends JPanel{
 	
 	Ball ball = new Ball(this);
 	Racquet racquet =  new Racquet(this);
-	int Ballspeed = 1;
-	int RacquetSpeed = 2;
+	Brick brick = new Brick(this);
+	double Ballspeed = 2;
+	double RacquetSpeed = 2.5;
 	
 	private int getScore() {
 		
-		return Ballspeed - 1;
+		return (int)((Ballspeed - 1) * 10) - 10;
 		
 	}
 	
@@ -56,6 +57,8 @@ public class Game extends JPanel{
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		ball.paint(g2d);
 		racquet.paint(g2d);
+		brick.paint(g2d);
+		
 		
 		g2d.setColor(Color.red);
 		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
@@ -76,7 +79,7 @@ public class Game extends JPanel{
 		JFrame frame = new JFrame("Arkanoid");
 		Game game = new Game();
 		frame.add(game);
-		frame.setSize(600, 600);
+		frame.setSize(1000, 700);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
