@@ -3,10 +3,10 @@ import java.awt.Rectangle;
 
 public class Brick {
 	
-	private static final int WIDTH = 100;
-	private static final int HEIGHT = 10;
-	int x = 10;
-	int y = 10;
+	private static final int WIDTH = 120;
+	private static final int HEIGHT = 45;
+	int x = 100;
+	int y = 300;
 	private int width;
 	private int PosHeight;
 	private int lives;
