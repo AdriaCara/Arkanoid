@@ -41,7 +41,7 @@ public class Ball extends JPanel{
 		} else if (collision()) {
 			
 			ya = -game.Ballspeed;
-			y = game.racquet.getTopY() - DIAMETER;
+			y = game.racquet.getTopY() - (DIAMETER - 7);
 			game.Ballspeed += 0.1;
 			game.RacquetSpeed += 0.1;
 			
