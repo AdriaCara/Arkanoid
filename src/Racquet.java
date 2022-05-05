@@ -31,6 +31,7 @@ public class Racquet extends JPanel{
 	
 	public void paint(Graphics2D g) {
 		
+		g.setColor(Color.black);
 		g.fillRect((int)x, (int)Y, WIDTH, HEIGHT);
 		
 	}

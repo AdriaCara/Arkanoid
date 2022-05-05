@@ -40,8 +40,6 @@ public class Ball extends JPanel{
 			
 		} else if (collision()) {
 			
-			ya = -game.Ballspeed;
-			y = game.racquet.getTopY() - (DIAMETER - 7);
 			game.Ballspeed += 0.1;
 			game.RacquetSpeed += 0.1;
 			
@@ -64,12 +62,56 @@ public class Ball extends JPanel{
 	
 	private boolean collision() {
 		
-		return game.racquet.getBounds().intersects(getBounds());
+		boolean collision = false;
+		
+		if (collision = game.racquet.getBounds().intersects(getBounds())) {
+			
+			collision = game.racquet.getBounds().intersects(getBounds());
+			y = game.racquet.getTopY() - (DIAMETER - 7);
+			
+			ya = -game.Ballspeed;
+			
+		} else if (collision =  game.brick.getBounds().intersects(getBounds())) {
+			
+			collision =  game.brick.getBounds().intersects(getBounds());
+			
+			if (game.brick.y < game.ball.y) {
+				
+				y = game.brick.getTopY() - (DIAMETER - 40);
+				ya = -game.Ballspeed;
+				
+			}
+			
+			if (game.brick.y > game.ball.y) {
+				
+				y = game.brick.getBottomY() + (DIAMETER + 40);
+				ya = game.Ballspeed;
+				
+			}
+			
+			if (game.brick.y > game.ball.y) {
+				
+				x = game.brick.getRigthX() - (DIAMETER - 40);
+				xa = -game.Ballspeed;
+				
+			}
+			
+			if (game.brick.x < game.ball.x) {
+				
+				x = game.brick.getLeftX() + (DIAMETER + 40);
+				xa = game.Ballspeed;
+				
+			}
+			
+		}
+		
+		return collision;
 		
 	}
 	
 	public void paint (Graphics2D g) {
 		
+		g.setColor(Color.blue);
 		g.fillOval((int)x, (int)y, DIAMETER, DIAMETER);
 		
 	}
