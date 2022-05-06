@@ -9,16 +9,16 @@ import java.awt.geom.Ellipse2D;
 @SuppressWarnings("serial")
 public class Game extends JPanel{
 	
-	
 	Ball ball = new Ball(this);
 	Racquet racquet =  new Racquet(this);
 	Brick brick = new Brick(this);
 	double Ballspeed = 2;
 	double RacquetSpeed = 2.5;
+	int Score = 0;
 	
 	private int getScore() {
 		
-		return (int)((Ballspeed - 1) * 10) - 10;
+		return Score;
 		
 	}
 	
@@ -76,10 +76,15 @@ public class Game extends JPanel{
 	
 	public static void StartGame() throws InterruptedException {
 		
+		int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
+		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
+		
 		JFrame frame = new JFrame("Arkanoid");
 		Game game = new Game();
 		frame.add(game);
-		frame.setSize(1000, 700);
+		frame.setBounds(WIDTH/2, HEIGHT, WIDTH/2, HEIGHT);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
