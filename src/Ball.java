@@ -6,8 +6,8 @@ import java.awt.geom.Ellipse2D;
 public class Ball extends JPanel{
 	
 	private static final int DIAMETER = 30;
-	double x = 105;
-	double y = 105;
+	double x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width/2);
+	double y = 400;
 	double xa = 1;
 	double ya = 1;
 	private Game game;
@@ -39,6 +39,7 @@ public class Ball extends JPanel{
 		else if (collisionRacquet()) {
 			ya = -game.Ballspeed;
 			y = game.racquet.getTopY() - (DIAMETER-5);
+			game.Score += 1;
 			
 			if (game.Ballspeed < 4) {
 				

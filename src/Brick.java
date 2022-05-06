@@ -8,7 +8,6 @@ public class Brick {
 	static final int HEIGHT = 45;
 	int x = 300;
 	int y = 200;
-	private int lives;
 	private Game game;
 	
 	public Brick(Game game) {
@@ -27,28 +26,6 @@ public class Brick {
 	public Rectangle getBounds() {
 		
 		return new Rectangle((int)x, (int)y, WIDTH, HEIGHT);
-		
-	}
-	
-	public int getTopY()  {
-		
-		return y - HEIGHT;
-		
-	}
-	public int getBottomY()  {
-		
-		return y + HEIGHT;
-		
-	}
-	
-	public int getRigthX()  {
-		
-		return x - WIDTH;
-		
-	}
-	public int getLeftX()  {
-		
-		return x + WIDTH;
 		
 	}
 

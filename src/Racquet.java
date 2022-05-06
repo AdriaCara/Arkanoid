@@ -6,15 +6,16 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Racquet extends JPanel{
 
-	private static final double Y = 550;
+	private static int Y;
 	private static final int WIDTH = 200;
-	private static final int HEIGHT = 15;
+	private static final int HEIGHT = 10;
 	double x = 0;
 	double xa = 0;
 	private Game game;
 	
 	public Racquet(Game game) {
 		
+		Y = Toolkit.getDefaultToolkit().getScreenSize().height - HEIGHT - 100;
 		this.game = game;
 		
 	}
@@ -60,13 +61,13 @@ public class Racquet extends JPanel{
 	
 	public Rectangle getBounds() {
 		
-		return new Rectangle((int)x, (int)Y, WIDTH, HEIGHT);
+		return new Rectangle((int)x, Y, WIDTH, HEIGHT);
 		
 	}
 	
 	public int getTopY()  {
 		
-		return (int)Y - HEIGHT;
+		return Y - HEIGHT;
 		
 	}
 	
