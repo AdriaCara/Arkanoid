@@ -19,94 +19,69 @@ public class Ball extends JPanel{
 	}
 
 	void move() {
-		
 		boolean changeDirection = true;
-		
-		if (x + xa < 0){
-			
+		if (x + xa < 0) {
 			xa = game.Ballspeed;
-			
-		} else if (x + xa > game.getWidth() - DIAMETER) {
-			
+		} 
+		 
+		else if (x + xa > game.getWidth() - DIAMETER) {
 			xa = -game.Ballspeed;
-			
-		} else if (y + ya < 0) {
-			
+		}
+		
+		else if (y + ya < 0) {
 			ya = game.Ballspeed;
-			
-		} else if (y + ya > game.getHeight() - DIAMETER)  {
-			
+		} 
+		 
+		else if (y + ya > game.getHeight() - DIAMETER) {
 			game.gameOver();
+		}
+		
+		else if (collisionRacquet()) {
+			ya = -game.Ballspeed;
+			y = game.racquet.getTopY() - (DIAMETER-5);
 			
-		} else if (collision()) {
+			if (game.Ballspeed < 4) {
+				
+				game.Ballspeed += 0.1;
+				
+			}
 			
-			game.Ballspeed += 0.1;
-			game.RacquetSpeed += 0.1;
+			if (game.RacquetSpeed < 5.5) {
+				
+				game.RacquetSpeed += 0.1;
+				
+			}
+		} 
+		
+		else if ((x + DIAMETER + xa > game.brick.x) 
+				&& (x + xa < game.brick.x + Brick.WIDTH) 
+				&& (y + DIAMETER > game.brick.y) 
+				&& (y < game.brick.y + Brick.HEIGHT)) {
 			
-		} else {
+			xa *= -1;
+		}
+		
+		else if ((x + DIAMETER > game.brick.x) 
+				&& (x < game.brick.x + Brick.WIDTH) 
+				&& (y + DIAMETER + ya > game.brick.y) 
+				&& (y + ya < game.brick.y + Brick.HEIGHT)) {
 			
+			ya *= -1;
+		}
+		else {
 			changeDirection = false;
-			
 		}
 		
 		if (changeDirection) {
-			
 			Sounds.BallSound.play();
-			
 		}
 		
 		x = x + xa;
 		y = y + ya;
-		
 	}
 	
-	private boolean collision() {
-		
-		boolean collision = false;
-		
-		if (collision = game.racquet.getBounds().intersects(getBounds())) {
-			
-			collision = game.racquet.getBounds().intersects(getBounds());
-			y = game.racquet.getTopY() - (DIAMETER - 7);
-			
-			ya = -game.Ballspeed;
-			
-		} else if (collision =  game.brick.getBounds().intersects(getBounds())) {
-			
-			collision =  game.brick.getBounds().intersects(getBounds());
-			
-			if (game.brick.y < game.ball.y) {
-				
-				y = game.brick.getTopY() - (DIAMETER - 40);
-				ya = -game.Ballspeed;
-				
-			}
-			
-			if (game.brick.y > game.ball.y) {
-				
-				y = game.brick.getBottomY() + (DIAMETER + 40);
-				ya = game.Ballspeed;
-				
-			}
-			
-			if (game.brick.y > game.ball.y) {
-				
-				x = game.brick.getRigthX() - (DIAMETER - 40);
-				xa = -game.Ballspeed;
-				
-			}
-			
-			if (game.brick.x < game.ball.x) {
-				
-				x = game.brick.getLeftX() + (DIAMETER + 40);
-				xa = game.Ballspeed;
-				
-			}
-			
-		}
-		
-		return collision;
-		
+	private boolean collisionRacquet() {
+		return game.racquet.getBounds().intersects(getBounds());
 	}
 	
 	public void paint (Graphics2D g) {

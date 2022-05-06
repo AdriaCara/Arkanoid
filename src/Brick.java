@@ -4,8 +4,8 @@ import java.awt.Rectangle;
 
 public class Brick {
 	
-	private static final int WIDTH = 120;
-	private static final int HEIGHT = 45;
+	static final int WIDTH = 120;
+	static final int HEIGHT = 45;
 	int x = 300;
 	int y = 200;
 	private int lives;
