@@ -9,6 +9,7 @@ public class Racquet extends JPanel{
 	private static int Y;
 	private static final int WIDTH = 200;
 	private static final int HEIGHT = 10;
+	int LIVES = 2;
 	double x = 0;
 	double xa = 0;
 	private Game game;
@@ -16,6 +17,7 @@ public class Racquet extends JPanel{
 	public Racquet(Game game) {
 		
 		Y = Toolkit.getDefaultToolkit().getScreenSize().height - HEIGHT - 100;
+		x = Toolkit.getDefaultToolkit().getScreenSize().width/2/3;
 		this.game = game;
 		
 	}
@@ -31,8 +33,24 @@ public class Racquet extends JPanel{
 	}
 	
 	public void paint(Graphics2D g) {
-		
-		g.setColor(Color.black);
+
+		if (LIVES == 2) {
+			
+			g.setColor(Color.BLUE);
+			
+		} else if (LIVES == 1) {
+			
+			g.setColor(Color.ORANGE);
+			
+		} else if (LIVES == 0) {
+			
+			g.setColor(Color.red);
+			
+		} else if (LIVES > 2) {
+			
+			g.setColor(Color.magenta);
+			
+		}
 		g.fillRect((int)x, (int)Y, WIDTH, HEIGHT);
 		
 	}
@@ -68,6 +86,24 @@ public class Racquet extends JPanel{
 	public int getTopY()  {
 		
 		return Y - HEIGHT;
+		
+	}
+	
+	public boolean RacquetHaveLives() {
+		
+		boolean RacquetHaveLives = false;
+		
+		if (LIVES <= 0) {
+			
+			RacquetHaveLives = true;
+			
+		} else {
+			
+			LIVES -= 1;
+			
+		}
+		
+		return RacquetHaveLives;
 		
 	}
 	
