@@ -52,15 +52,15 @@ public class Ball extends JPanel {
 				ya = -game.Ballspeed;
 				y = game.racquet.getTopY() - (DIAMETER - 5);
 
-				if (game.Ballspeed < 4) {
+				if (game.Ballspeed < 8) {
 
-					game.Ballspeed += 0.1;
+					game.Ballspeed += 0.2;
 
 				}
 
-				if (game.RacquetSpeed < 5.5) {
+				if (game.RacquetSpeed < 8.5) {
 
-					game.RacquetSpeed += 0.1;
+					game.RacquetSpeed += 0.2;
 
 				}
 			}

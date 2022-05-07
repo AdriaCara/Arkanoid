@@ -101,7 +101,7 @@ public class Game extends JPanel {
 	
 	public void win() {
 		
-		if (bricks.size() < 1) {
+		if (bricks.size() <= 0) {
 			
 			Sounds.BgSound.stop();
 			JOptionPane.showMessageDialog(this, "Well done! your Score is: " + getScore(), "GG", JOptionPane.YES_NO_OPTION);
