@@ -2,7 +2,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -16,7 +15,7 @@ public abstract class Brick {
 	private static Game game;
 	
 	public abstract void paint(Graphics2D g);
-	public abstract void action();
+	public abstract void action(int i);
 
 	public Brick(int lives, double X, double Y, Game game) {
 
@@ -27,7 +26,7 @@ public abstract class Brick {
 
 	}
 
-	public Rectangle getBounds() {
+	public Rectangle getBounds(int i) {
 
 		return new Rectangle((int) x, (int) y, WIDTH, HEIGHT);
 
@@ -45,15 +44,15 @@ public abstract class Brick {
 
 			if (lives >= 3) {
 
-				brick = new BrickRed(3, PosX, PosY, game);
+				brick = new BrickRed(PosX, PosY, game);
 
 			} else if (lives == 2) {
 
-				brick = new BrickBlue(0, PosX, PosY, game);
+				brick = new BrickBlue(PosX, PosY, game);
 
 			} else {
 
-				brick = new BrickYellow(0, PosX, PosY, game);
+				brick = new BrickYellow(PosX, PosY, game);
 
 			}
 

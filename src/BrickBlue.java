@@ -2,9 +2,11 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class BrickBlue extends Brick {
+	
+	private Game game;
 
-	public BrickBlue(int lives, double X, double Y, Game game) {
-		super(lives, X, Y, game);
+	public BrickBlue(double X, double Y, Game game) {
+		super(0, X, Y, game);
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -15,9 +17,10 @@ public class BrickBlue extends Brick {
 
 	}
 	
-	public void action() {
+	public void action(int i) {
 		
-		
+		game.bricks.remove(i);
+		game.ball.invertedControls = true;
 		
 	}
 
