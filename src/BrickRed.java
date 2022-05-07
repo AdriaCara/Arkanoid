@@ -15,4 +15,10 @@ public class BrickRed extends Brick{
 
 	}
 	
+	public void action() {
+		
+		
+		
+	}
+	
 }

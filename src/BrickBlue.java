@@ -14,5 +14,11 @@ public class BrickBlue extends Brick {
 		g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
 
 	}
+	
+	public void action() {
+		
+		
+		
+	}
 
 }

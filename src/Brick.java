@@ -14,6 +14,9 @@ public abstract class Brick {
 	double x;
 	double y;
 	private static Game game;
+	
+	public abstract void paint(Graphics2D g);
+	public abstract void action();
 
 	public Brick(int lives, double X, double Y, Game game) {
 
@@ -23,9 +26,6 @@ public abstract class Brick {
 		this.game = game;
 
 	}
-	
-	
-	public abstract void paint(Graphics2D g);
 
 	public Rectangle getBounds() {
 
