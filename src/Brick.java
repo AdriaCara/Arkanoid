@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Brick {
+public abstract class Brick {
 
 	static final int WIDTH = 135;
 	static final int HEIGHT = 45;
@@ -23,13 +23,9 @@ public class Brick {
 		this.game = game;
 
 	}
-
-	public void paint(Graphics2D g) {
-
-		setColor(g);
-		g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
-
-	}
+	
+	
+	public abstract void paint(Graphics2D g);
 
 	public Rectangle getBounds() {
 
@@ -49,19 +45,17 @@ public class Brick {
 
 			if (lives >= 3) {
 
-				lives = 3;
+				brick = new BrickRed(3, PosX, PosY, game);
 
 			} else if (lives == 2) {
 
-				lives = 1;
+				brick = new BrickBlue(0, PosX, PosY, game);
 
 			} else {
 
-				lives = 0;
+				brick = new BrickYellow(0, PosX, PosY, game);
 
 			}
-
-			brick = new Brick(lives, PosX, PosY, game);
 
 			bricks.add(brick);
 
@@ -73,32 +67,6 @@ public class Brick {
 				PosY += (HEIGHT + 5);
 
 			}
-
-		}
-
-	}
-
-	public void setColor(Graphics2D g) {
-
-		if (LIVES == 3) {
-
-			g.setColor(Color.green);
-
-		} else if (LIVES == 2) {
-
-			g.setColor(Color.blue);
-
-		} else if (LIVES == 1) {
-
-			g.setColor(Color.ORANGE);
-
-		} else if (LIVES == 0) {
-
-			g.setColor(Color.RED);
-
-		} else if (LIVES > 3) {
-
-			g.setColor(Color.magenta);
 
 		}
 
