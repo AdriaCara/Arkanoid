@@ -1,11 +1,11 @@
 
 public class BrickRed extends Brick{
 
-	public BrickRed(double X, double Y, Game game) {
-		super(X, Y, game);
+	public BrickRed(int lives, double X, double Y, Game game) {
+		super(lives, X, Y, game);
 		// TODO Auto-generated constructor stub
 	}
-
-	int lives = 3;
+	
+	
 	
 }

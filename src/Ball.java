@@ -70,8 +70,16 @@ public class Ball extends JPanel {
 
 				xa *= -1;
 				Sounds.BallSound.play();
-				game.bricks.remove(i);
-				game.Score += 1;
+				if (game.bricks.get(i).LIVES <= 0) {
+					
+					game.bricks.remove(i);
+					game.Score += 1;
+					
+				} else {
+					
+					game.bricks.get(i).LIVES --;
+					
+				}
 
 			}
 
@@ -80,8 +88,16 @@ public class Ball extends JPanel {
 
 				ya *= -1;
 				Sounds.BallSound.play();
-				game.bricks.remove(i);
-				game.Score += 1;
+				if (game.bricks.get(i).LIVES <= 0) {
+					
+					game.bricks.remove(i);
+					game.Score += 1;
+					
+				} else {
+					
+					game.bricks.get(i).LIVES --;
+					
+				}
 
 			} else {
 

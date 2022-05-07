@@ -90,10 +90,10 @@ public class Game extends JPanel {
 			
 		} else {
 			
-			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width/2/2;
+			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width/2/3;
 			
 			ball.x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
-			ball.y = 600;
+			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height/1.5);
 			
 		}
 
