@@ -125,7 +125,7 @@ public class Ball extends JPanel {
 
 	public void paint(Graphics2D g) {
 
-		g.setColor(Color.blue);
+		game.racquet.setColor(g);
 		g.fillOval((int) x, (int) y, DIAMETER, DIAMETER);
 
 	}
