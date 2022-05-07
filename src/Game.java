@@ -81,10 +81,21 @@ public class Game extends JPanel {
 
 	public void gameOver() {
 
-		Sounds.BgSound.stop();
-		Sounds.GameOverSound.play();
-		JOptionPane.showMessageDialog(this, "your score is: " + getScore(), "Game Over", JOptionPane.YES_NO_OPTION);
-		System.exit(ABORT);
+		if (racquet.RacquetHaveLives()) {
+			
+			Sounds.BgSound.stop();
+			Sounds.GameOverSound.play();
+			JOptionPane.showMessageDialog(this, "your score is: " + getScore(), "Game Over", JOptionPane.YES_NO_OPTION);
+			System.exit(ABORT);
+			
+		} else {
+			
+			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width/2/2;
+			
+			ball.x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
+			ball.y = 600;
+			
+		}
 
 	}
 	

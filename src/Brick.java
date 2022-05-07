@@ -37,18 +37,18 @@ public class Brick {
 		int spaceX = 5;
 		int spaceY = 5;
 
-		for (int i = 0; i < 0; i++) {
+		for (int i = 0; i < 52; i++) {
 
 			brick = new Brick(spaceX, spaceY, game);
 
 			bricks.add(brick);
 
-			spaceX += 140;
+			spaceX += (WIDTH + 5);
 			
-			if (i%5 == 1 && i != 1) {
+			if (i%5 == 1 && 1%i == 1) {
 				
 				spaceX = 5;
-				spaceY += 50;
+				spaceY += (HEIGHT + 5);
 				
 			}
 
