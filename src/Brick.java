@@ -23,28 +23,7 @@ public class Brick {
 	
 	public void paint (Graphics2D g) {
 		
-		if (LIVES == 3) {
-			
-			g.setColor(Color.green);
-			
-		} else if (LIVES == 2) {
-			
-			g.setColor(Color.blue);
-			
-			
-		}  else if (LIVES == 1) {
-			
-			g.setColor(Color.ORANGE);
-			
-		} else if (LIVES == 0) {
-			
-			g.setColor(Color.RED);
-			
-		} else if (LIVES > 3) {
-			
-			g.setColor(Color.magenta);
-			
-		}
+		setColor(g);
 		g.fillRect((int)x, (int)y, WIDTH, HEIGHT);
 		
 	}
@@ -95,6 +74,33 @@ public class Brick {
 
 		}
 
+	}
+	
+	public void setColor(Graphics2D g) {
+		
+		if (LIVES == 3) {
+			
+			g.setColor(Color.green);
+			
+		} else if (LIVES == 2) {
+			
+			g.setColor(Color.blue);
+			
+			
+		}  else if (LIVES == 1) {
+			
+			g.setColor(Color.ORANGE);
+			
+		} else if (LIVES == 0) {
+			
+			g.setColor(Color.RED);
+			
+		} else if (LIVES > 3) {
+			
+			g.setColor(Color.magenta);
+			
+		}
+		
 	}
 
 }

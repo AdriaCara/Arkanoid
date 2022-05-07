@@ -34,23 +34,7 @@ public class Racquet extends JPanel{
 	
 	public void paint(Graphics2D g) {
 
-		if (LIVES == 2) {
-			
-			g.setColor(Color.BLUE);
-			
-		} else if (LIVES == 1) {
-			
-			g.setColor(Color.ORANGE);
-			
-		} else if (LIVES == 0) {
-			
-			g.setColor(Color.red);
-			
-		} else if (LIVES > 2) {
-			
-			g.setColor(Color.magenta);
-			
-		}
+		setColor(g);
 		g.fillRect((int)x, (int)Y, WIDTH, HEIGHT);
 		
 	}
@@ -104,6 +88,28 @@ public class Racquet extends JPanel{
 		}
 		
 		return RacquetHaveLives;
+		
+	}
+	
+	public void setColor(Graphics2D g) {
+		
+		if (LIVES == 2) {
+			
+			g.setColor(Color.BLUE);
+			
+		} else if (LIVES == 1) {
+			
+			g.setColor(Color.ORANGE);
+			
+		} else if (LIVES == 0) {
+			
+			g.setColor(Color.red);
+			
+		} else if (LIVES > 2) {
+			
+			g.setColor(Color.magenta);
+			
+		}
 		
 	}
 	
