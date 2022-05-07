@@ -53,7 +53,7 @@ public class Game extends JPanel {
 		Sounds.BgSound.loop();
 	}
 
-	private void move() {
+	private void move() throws InterruptedException {
 
 		ball.move();
 		racquet.move();

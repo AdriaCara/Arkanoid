@@ -47,15 +47,33 @@ public class Racquet extends JPanel{
 	
 	public void KeyPressed(KeyEvent e) {
 		
-		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		if (!game.ball.invertedControls) {
 			
-			xa = -game.RacquetSpeed;
+			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+				
+				xa = -game.RacquetSpeed;
+				
+			}
 			
-		}
-		
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+				
+				xa = game.RacquetSpeed;
+				
+			}
 			
-			xa = game.RacquetSpeed;
+		} else {
+			
+			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+				
+				xa = game.RacquetSpeed;
+				
+			}
+			
+			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+				
+				xa = -game.RacquetSpeed;
+				
+			}
 			
 		}
 		

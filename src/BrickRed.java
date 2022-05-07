@@ -1,10 +1,13 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 
 public class BrickRed extends Brick{
+	
+	private Game game;
 
-	public BrickRed(int lives, double X, double Y, Game game) {
-		super(lives, X, Y, game);
+	public BrickRed(double X, double Y, Game game) {
+		super(3, X, Y, game);
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -15,10 +18,15 @@ public class BrickRed extends Brick{
 
 	}
 	
-	public void action() {
+	public void action(int i) {
 		
+		if (!(game.bricks.get(i).y >= Toolkit.getDefaultToolkit().getScreenSize().height)) {
+			
+			game.bricks.remove(i);
+			
+		}
 		
-		
+		game.bricks.get(i).y += 1;
 	}
 	
 }
