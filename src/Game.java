@@ -14,8 +14,9 @@ public class Game extends JPanel {
 	Ball ball = new Ball(this);
 	Racquet racquet = new Racquet(this);
 	static double Ballspeed = 2.5;
-	double RacquetSpeed = 5;
+	static double RacquetSpeed = 5;
 	int Score = 0;
+	static int level = 0;
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();
 	static Brick brick;
 
@@ -80,47 +81,72 @@ public class Game extends JPanel {
 	}
 
 	public void gameOver() {
-		
+
 		if (ball.onlyLess) {
-			
+
 			racquet.LIVES -= racquet.LIVES;
-			
+
 		}
 
 		if (racquet.RacquetNoHaveLives()) {
-			
+
 			Sounds.BgSound.stop();
 			Sounds.GameOverSound.play();
 			JOptionPane.showMessageDialog(this, "your score is: " + getScore(), "Game Over", JOptionPane.YES_NO_OPTION);
 			System.exit(ABORT);
-			
-		}  else {
-			
+
+		} else {
+
 			racquet.LIVES -= 1;
-			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width/2/3;
+			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 3;
 
 			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 4 / 2);
-			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height/1.5);
+			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
 			if (ball.xa < 0) {
-				
+
 				ball.xa *= -1;
-				
+
 			}
-			
+
 		}
 
 	}
-	
+
 	public void win() {
-		
+
 		if (bricks.size() <= 0) {
-			
-			Sounds.BgSound.stop();
-			JOptionPane.showMessageDialog(this, "Well done! your Score is: " + getScore(), "GG", JOptionPane.YES_NO_OPTION);
-			System.exit(ABORT);
-			
+
+			if (level == 0) {
+
+				level++;
+				Brick.createBricks(bricks, brick);
+
+				racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 3;
+
+				ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 4 / 2);
+				ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
+				if (ball.xa < 0) {
+
+					ball.xa *= -1;
+
+				}
+				if (ball.ya < 0) {
+					
+					ball.ya *= -1;
+					
+				}
+
+			} else {
+
+				Sounds.BgSound.stop();
+				JOptionPane.showMessageDialog(this, "Well done! your Score is: " + getScore(), "GG",
+						JOptionPane.YES_NO_OPTION);
+				System.exit(ABORT);
+
+			}
+
 		}
-		
+
 	}
 
 	public static void StartGame() throws InterruptedException {
@@ -128,14 +154,13 @@ public class Game extends JPanel {
 		Brick.createBricks(bricks, brick);
 		int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
-		
+
 		JFrame menu = new JFrame("Menu");
 		Game game = new Game();
-		
 
 		JFrame gameFrame = new JFrame("Arkanoid");
 		gameFrame.add(game);
-		gameFrame.setBounds(WIDTH /2, HEIGHT, WIDTH / 2, HEIGHT);
+		gameFrame.setBounds(WIDTH / 2, HEIGHT, WIDTH / 2, HEIGHT);
 		gameFrame.setForeground(Color.MAGENTA);
 		gameFrame.setBackground(Color.BLACK);
 		gameFrame.setResizable(false);

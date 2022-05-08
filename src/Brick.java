@@ -38,29 +38,59 @@ public abstract class Brick {
 
 		int PosX = 5;
 		int PosY = 5;
-		int lives;
+		int percentage;
 
 		for (int i = 0; i < 50; i++) {
 
-			lives = (int) (Math.random() * 5);
+			percentage = (int) (Math.random() * 100);
 
-			if (lives >= 4) {
+			if (game.level == 0) {
 				
-				brick = new BrickGreen(PosX, PosY, game);
+				if (percentage >= 60) {
+					
+					brick = new BrickGreen(PosX, PosY, game);
+					
+				} else if ((percentage < 60) && (percentage >= 30)) {
+
+					brick = new BrickRed(PosX, PosY, game);
+
+				} else if ((percentage < 30) && (percentage >= 1)) {
+
+					brick = new BrickBlue(PosX, PosY, game);
+
+				} else {
+					
+					brick = new BrickMagenta(PosX, PosY, game);
+					
+				}
 				
-			} else if (lives >= 3) {
-
-				brick = new BrickYellow(PosX, PosY, game);
-
-			} else if (lives == 2) {
-
-				brick = new BrickBlue(PosX, PosY, game);
-
 			} else {
+				
+				if (percentage >= 70) {
+					
+					brick = new BrickGreen(PosX, PosY, game);
+					
+				} else if ((percentage < 70) && (percentage >= 40)) {
 
-				brick = new BrickRed(PosX, PosY, game);
+					brick = new BrickRed(PosX, PosY, game);
 
+				} else if ((percentage < 40) && (percentage >= 10)) {
+
+					brick = new BrickBlue(PosX, PosY, game);
+
+				} else if ((percentage < 10) && (percentage >= 1)) {
+					
+					brick = new BrickYellow(PosX, PosY, game);
+					
+				} else {
+					
+					brick = new BrickMagenta(PosX, PosY, game);
+					
+				}
+				
 			}
+			
+			brick = new BrickMagenta(PosX, PosY, game);
 
 			bricks.add(brick);
 
