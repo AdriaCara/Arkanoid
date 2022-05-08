@@ -123,12 +123,14 @@ public class Game extends JPanel {
 		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
 		
 		JFrame menu = new JFrame("Menu");
+		Game game = new Game();
 		
 
 		JFrame gameFrame = new JFrame("Arkanoid");
-		Game game = new Game();
 		gameFrame.add(game);
 		gameFrame.setBounds(WIDTH /2, HEIGHT, WIDTH / 2, HEIGHT);
+		gameFrame.setForeground(Color.MAGENTA);
+		gameFrame.setBackground(Color.BLACK);
 		gameFrame.setResizable(false);
 		gameFrame.setLocationRelativeTo(null);
 		gameFrame.setVisible(true);
