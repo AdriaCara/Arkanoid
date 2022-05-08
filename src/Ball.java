@@ -8,11 +8,13 @@ public class Ball extends JPanel {
 	private static final int DIAMETER = 30;
 	double x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
 	double y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
-	double xa = 1;
-	double ya = 1;
-	private Game game;
-	private Brick brick;
+	static double xa = 1;
+	static double ya = 1;
 	boolean down = false;
+	boolean onlyLess = false;
+	double brickMove = 7;
+	private Game game;
+	private Brick brick; 
 
 	public Ball(Game game) {
 
@@ -58,15 +60,15 @@ public class Ball extends JPanel {
 
 					if (xa > 0) {
 
-						xa *= -1;
+						xa *= -game.Ballspeed;
 
 					}
 
 				} else if (game.racquet.effectRight) {
 
-					if (xa < 0) {
+					if (xa > 0) {
 
-						xa *= 1;
+						xa *= game.Ballspeed;
 
 					}
 
@@ -74,26 +76,27 @@ public class Ball extends JPanel {
 
 				if (game.Ballspeed < 8) {
 
-					game.Ballspeed += 0.3;
+					game.Ballspeed += 0;
 
 				}
 
 				if (game.RacquetSpeed < 8.5) {
 
-					game.RacquetSpeed += 0.3;
+					game.RacquetSpeed += 0;
 
 				}
+				
 			}
 
 			else if ((x + DIAMETER + xa > game.bricks.get(i).x) && (x + xa < game.bricks.get(i).x + Brick.WIDTH)
-					&& (y + DIAMETER > game.bricks.get(i).y) && (y < game.bricks.get(i).y + Brick.HEIGHT)) {
+					&& (y + DIAMETER > game.bricks.get(i).y) && (y < game.bricks.get(i).y + Brick.HEIGHT) && game.bricks.get(i).Alive) {
 
 				breakBricks(i, down);
 
 			}
 
 			else if ((x + DIAMETER > game.bricks.get(i).x) && (x < game.bricks.get(i).x + Brick.WIDTH)
-					&& (y + DIAMETER + ya > game.bricks.get(i).y) && (y + ya < game.bricks.get(i).y + Brick.HEIGHT)) {
+					&& (y + DIAMETER + ya > game.bricks.get(i).y) && (y + ya < game.bricks.get(i).y + Brick.HEIGHT) && game.bricks.get(i).Alive) {
 
 				down = true;
 				breakBricks(i, down);
@@ -109,6 +112,30 @@ public class Ball extends JPanel {
 			}
 
 		}
+		
+		for (int i = 0; i < game.bricks.size(); i++) {
+			
+			if (game.racquet.getBounds().intersects(game.bricks.get(i).getBounds())) {
+				
+				onlyLess = true;
+				game.bricks.remove(i);
+				game.gameOver();
+				
+			}
+			
+			if (!(game.bricks.get(i).Alive)) {
+				
+				game.bricks.get(i).y += brickMove;
+				
+				if (Game.bricks.get(i).y > game.racquet.Y) {
+					
+					Game.bricks.remove(i);
+					
+				}
+				
+			}
+			
+		}
 
 		x = x + xa;
 		y = y + ya;
@@ -118,7 +145,7 @@ public class Ball extends JPanel {
 
 	private void breakBricks(int i, boolean down) {
 
-		if (down) {
+		if (down && game.bricks.get(i).Alive) {
 			
 			ya *= -1;
 			
@@ -128,21 +155,25 @@ public class Ball extends JPanel {
 			
 		}
 		Sounds.BallSound.play();
-		if (game.bricks.get(i).LIVES <= 0) {
+		if (game.bricks.get(i).Alive) {
+			
+			if (game.bricks.get(i).LIVES <= 0) {
 
-			game.bricks.get(i).action(i);
-			game.Score += 1;
+				game.bricks.get(i).action(i);
+				game.Score += 1;
 
-		} else {
+			} else {
 
-			game.bricks.get(i).LIVES--;
+				game.bricks.get(i).LIVES--;
 
+			}
+			
 		}
 
 	}
 
 	private boolean collisionRacquet() {
-
+		
 		return game.racquet.getBounds().intersects(getBounds());
 
 	}

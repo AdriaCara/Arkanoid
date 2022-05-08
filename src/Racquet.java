@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Racquet extends JPanel{
 
-	private static int Y;
+	static int Y;
 	private static final int WIDTH = 200;
 	private static final int HEIGHT = 10;
 	int LIVES = 2;
@@ -101,21 +101,17 @@ public class Racquet extends JPanel{
 		
 	}
 	
-	public boolean RacquetHaveLives() {
+	public boolean RacquetNoHaveLives() {
 		
-		boolean RacquetHaveLives = false;
+		boolean RacquetNoHaveLives = false;
 		
 		if (LIVES <= 0) {
 			
-			RacquetHaveLives = true;
-			
-		} else {
-			
-			LIVES -= 1;
+			RacquetNoHaveLives = true;
 			
 		}
 		
-		return RacquetHaveLives;
+		return RacquetNoHaveLives;
 		
 	}
 	

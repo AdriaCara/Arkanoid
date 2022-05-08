@@ -74,24 +74,31 @@ public class Game extends JPanel {
 
 		}
 
-		g2d.setColor(Color.red);
+		g2d.setColor(Color.BLACK);
 		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
 		g2d.drawString(String.valueOf(getScore()), 10, 30);
 	}
 
 	public void gameOver() {
+		
+		if (ball.onlyLess) {
+			
+			racquet.LIVES -= racquet.LIVES;
+			
+		}
 
-		if (racquet.RacquetHaveLives()) {
+		if (racquet.RacquetNoHaveLives()) {
 			
 			Sounds.BgSound.stop();
 			Sounds.GameOverSound.play();
 			JOptionPane.showMessageDialog(this, "your score is: " + getScore(), "Game Over", JOptionPane.YES_NO_OPTION);
 			System.exit(ABORT);
 			
-		} else {
+		}  else {
 			
+			racquet.LIVES -= 1;
 			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width/2/3;
-			
+
 			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 4 / 2);
 			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height/1.5);
 			if (ball.xa < 0) {

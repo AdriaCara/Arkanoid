@@ -12,21 +12,23 @@ public abstract class Brick {
 	int LIVES;
 	double x;
 	double y;
+	boolean Alive = true;
 	private static Game game;
 	
 	public abstract void paint(Graphics2D g);
 	public abstract void action(int i);
 
-	public Brick(int lives, double X, double Y, Game game) {
+	public Brick(int lives, double X, double Y, Game game, boolean alive) {
 
 		this.LIVES = lives;
 		this.x = X;
 		this.y = Y;
+		this.Alive = alive;
 		this.game = game;
 
 	}
 
-	public Rectangle getBounds(int i) {
+	public Rectangle getBounds() {
 
 		return new Rectangle((int) x, (int) y, WIDTH, HEIGHT);
 
@@ -40,19 +42,23 @@ public abstract class Brick {
 
 		for (int i = 0; i < 50; i++) {
 
-			lives = (int) (Math.random() * 4);
+			lives = (int) (Math.random() * 5);
 
-			if (lives >= 3) {
+			if (lives >= 4) {
+				
+				brick = new BrickGreen(PosX, PosY, game);
+				
+			} else if (lives >= 3) {
 
 				brick = new BrickYellow(PosX, PosY, game);
 
 			} else if (lives == 2) {
 
-				brick = new BrickRed(PosX, PosY, game);
+				brick = new BrickBlue(PosX, PosY, game);
 
 			} else {
 
-				brick = new BrickBlue(PosX, PosY, game);
+				brick = new BrickRed(PosX, PosY, game);
 
 			}
 
