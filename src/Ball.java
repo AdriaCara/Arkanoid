@@ -62,27 +62,35 @@ public class Ball extends JPanel {
 
 						xa *= -game.Ballspeed;
 
+					} else {
+						
+						xa *= game.Ballspeed;
+						
 					}
 
 				} else if (game.racquet.effectRight) {
 
-					if (xa > 0) {
+					if (xa < 0) {
 
+						xa *= -game.Ballspeed;
+
+					} else {
+						
 						xa *= game.Ballspeed;
-
+						
 					}
 
 				}
 
 				if (game.Ballspeed < 8) {
 
-					game.Ballspeed += 0;
+					game.Ballspeed += 0.1;
 
 				}
 
 				if (game.RacquetSpeed < 8.5) {
 
-					game.RacquetSpeed += 0;
+					game.RacquetSpeed += 0.1;
 
 				}
 				

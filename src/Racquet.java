@@ -9,7 +9,7 @@ public class Racquet extends JPanel{
 	static int Y;
 	private static final int WIDTH = 200;
 	private static final int HEIGHT = 10;
-	int LIVES = 2;
+	static int LIVES = 2;
 	double x = 0;
 	double xa = 0;
 	private Game game;
@@ -127,11 +127,15 @@ public class Racquet extends JPanel{
 			
 		} else if (LIVES == 0) {
 			
-			g.setColor(Color.red);
+			g.setColor(Color.RED);
 			
-		} else if (LIVES > 2) {
+		} else if (LIVES == 3) {
 			
-			g.setColor(Color.magenta);
+			g.setColor(Color.MAGENTA);
+			
+		} else {
+			
+			g.setColor(Color.BLACK);
 			
 		}
 		
