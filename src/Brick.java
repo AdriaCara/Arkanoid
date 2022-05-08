@@ -89,8 +89,6 @@ public abstract class Brick {
 				}
 				
 			}
-			
-			brick = new BrickMagenta(PosX, PosY, game);
 
 			bricks.add(brick);
 
