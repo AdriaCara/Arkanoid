@@ -17,15 +17,13 @@ public class BrickBlue extends Brick {
 
 	}
 	
-	@SuppressWarnings("static-access")
-	public void action(int i) throws InterruptedException {
+	public void action(int i) {
 		
 		Game.bricks.remove(i);
 		racquet.invertedControls = true;
 		
-		Thread.sleep(2000);
+
 		
-		racquet.invertedControls = false;
 	}
 
 }

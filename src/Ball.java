@@ -20,7 +20,7 @@ public class Ball extends JPanel {
 
 	}
 
-	void move() throws InterruptedException {
+	void move() {
 
 		boolean changeDirection = true;
 		boolean down = false;
@@ -116,7 +116,7 @@ public class Ball extends JPanel {
 		game.win();
 	}
 
-	private void breakBricks(int i, boolean down) throws InterruptedException {
+	private void breakBricks(int i, boolean down) {
 
 		if (down) {
 			
