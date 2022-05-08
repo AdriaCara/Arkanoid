@@ -3,8 +3,6 @@ import java.awt.Graphics2D;
 
 public class BrickYellow extends Brick {
 
-	private Game game;
-
 	public BrickYellow(double X, double Y, Game game) {
 		super(0, X, Y, game);
 		// TODO Auto-generated constructor stub
@@ -19,14 +17,15 @@ public class BrickYellow extends Brick {
 
 	public void action(int i) {
 
-		game.bricks.remove(i);
-		if (game.Ballspeed > 30) {
-			
-			game.Ballspeed += 5;
-			
+		Game.bricks.remove(i);
+		if (Game.Ballspeed > 30) {
+
+			Game.Ballspeed += 5;
+
 		}
 		
 		
+
 	}
 
 }

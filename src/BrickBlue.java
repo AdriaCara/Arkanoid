@@ -3,7 +3,7 @@ import java.awt.Graphics2D;
 
 public class BrickBlue extends Brick {
 	
-	private Game game;
+	private Racquet racquet;
 
 	public BrickBlue(double X, double Y, Game game) {
 		super(0, X, Y, game);
@@ -17,11 +17,15 @@ public class BrickBlue extends Brick {
 
 	}
 	
-	public void action(int i) {
+	@SuppressWarnings("static-access")
+	public void action(int i) throws InterruptedException {
 		
-		game.bricks.remove(i);
-		game.ball.invertedControls = true;
+		Game.bricks.remove(i);
+		racquet.invertedControls = true;
 		
+		Thread.sleep(2000);
+		
+		racquet.invertedControls = false;
 	}
 
 }

@@ -12,7 +12,7 @@ public class Ball extends JPanel {
 	double ya = 1;
 	private Game game;
 	private Brick brick;
-	boolean invertedControls = false;
+	boolean down = false;
 
 	public Ball(Game game) {
 
@@ -23,6 +23,7 @@ public class Ball extends JPanel {
 	void move() throws InterruptedException {
 
 		boolean changeDirection = true;
+		boolean down = false;
 
 		for (int i = 0; i < game.bricks.size(); i++) {
 
@@ -53,16 +54,33 @@ public class Ball extends JPanel {
 
 				ya = -game.Ballspeed;
 				y = game.racquet.getTopY() - (DIAMETER - 5);
+				if (game.racquet.effectLeft) {
+
+					if (xa > 0) {
+
+						xa *= -1;
+
+					}
+
+				} else if (game.racquet.effectRight) {
+
+					if (xa < 0) {
+
+						xa *= 1;
+
+					}
+
+				}
 
 				if (game.Ballspeed < 8) {
 
-					game.Ballspeed += 0.2;
+					game.Ballspeed += 0.3;
 
 				}
 
 				if (game.RacquetSpeed < 8.5) {
 
-					game.RacquetSpeed += 0.2;
+					game.RacquetSpeed += 0.3;
 
 				}
 			}
@@ -70,14 +88,15 @@ public class Ball extends JPanel {
 			else if ((x + DIAMETER + xa > game.bricks.get(i).x) && (x + xa < game.bricks.get(i).x + Brick.WIDTH)
 					&& (y + DIAMETER > game.bricks.get(i).y) && (y < game.bricks.get(i).y + Brick.HEIGHT)) {
 
-				breakBricks(i);
+				breakBricks(i, down);
 
 			}
 
 			else if ((x + DIAMETER > game.bricks.get(i).x) && (x < game.bricks.get(i).x + Brick.WIDTH)
 					&& (y + DIAMETER + ya > game.bricks.get(i).y) && (y + ya < game.bricks.get(i).y + Brick.HEIGHT)) {
 
-				breakBricks(i);
+				down = true;
+				breakBricks(i, down);
 
 			} else {
 
@@ -96,10 +115,18 @@ public class Ball extends JPanel {
 
 		game.win();
 	}
-	
-	private void breakBricks(int i) {
-		
-		xa *= -1;
+
+	private void breakBricks(int i, boolean down) throws InterruptedException {
+
+		if (down) {
+			
+			ya *= -1;
+			
+		} else {
+			
+			xa *= -1;
+			
+		}
 		Sounds.BallSound.play();
 		if (game.bricks.get(i).LIVES <= 0) {
 
@@ -111,7 +138,7 @@ public class Ball extends JPanel {
 			game.bricks.get(i).LIVES--;
 
 		}
-		
+
 	}
 
 	private boolean collisionRacquet() {

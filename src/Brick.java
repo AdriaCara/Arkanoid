@@ -15,7 +15,7 @@ public abstract class Brick {
 	private static Game game;
 	
 	public abstract void paint(Graphics2D g);
-	public abstract void action(int i);
+	public abstract void action(int i) throws InterruptedException;
 
 	public Brick(int lives, double X, double Y, Game game) {
 
@@ -48,11 +48,11 @@ public abstract class Brick {
 
 			} else if (lives == 2) {
 
-				brick = new BrickBlue(PosX, PosY, game);
+				brick = new BrickRed(PosX, PosY, game);
 
 			} else {
 
-				brick = new BrickYellow(PosX, PosY, game);
+				brick = new BrickBlue(PosX, PosY, game);
 
 			}
 

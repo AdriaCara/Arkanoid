@@ -3,8 +3,6 @@ import java.awt.Graphics2D;
 import java.awt.Toolkit;
 
 public class BrickRed extends Brick{
-	
-	private Game game;
 
 	public BrickRed(double X, double Y, Game game) {
 		super(3, X, Y, game);
@@ -20,13 +18,13 @@ public class BrickRed extends Brick{
 	
 	public void action(int i) {
 		
-		if (!(game.bricks.get(i).y >= Toolkit.getDefaultToolkit().getScreenSize().height)) {
+		if (!(Game.bricks.get(i).y >= Toolkit.getDefaultToolkit().getScreenSize().height)) {
 			
-			game.bricks.remove(i);
+			Game.bricks.remove(i);
 			
 		}
 		
-		game.bricks.get(i).y += 1;
+		Game.bricks.get(i).y += 1;
 	}
 	
 }
