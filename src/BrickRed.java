@@ -22,9 +22,12 @@ public class BrickRed extends Brick{
 			
 			Game.bricks.remove(i);
 			
+		} else {
+			
+			Game.bricks.get(i).y += 1;
+			
 		}
 		
-		Game.bricks.get(i).y += 4;
 	}
 	
 }

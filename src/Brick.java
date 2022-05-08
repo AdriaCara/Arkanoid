@@ -44,7 +44,7 @@ public abstract class Brick {
 
 			if (lives >= 3) {
 
-				brick = new BrickRed(PosX, PosY, game);
+				brick = new BrickYellow(PosX, PosY, game);
 
 			} else if (lives == 2) {
 
@@ -52,7 +52,7 @@ public abstract class Brick {
 
 			} else {
 
-				brick = new BrickRed(PosX, PosY, game);
+				brick = new BrickBlue(PosX, PosY, game);
 
 			}
 

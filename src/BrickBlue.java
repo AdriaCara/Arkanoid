@@ -20,9 +20,16 @@ public class BrickBlue extends Brick {
 	public void action(int i) {
 		
 		Game.bricks.remove(i);
-		racquet.invertedControls = true;
 		
-
+		if (racquet.invertedControls) {
+			
+			racquet.invertedControls = false;
+			
+		} else {
+			
+			racquet.invertedControls = true;
+			
+		}
 		
 	}
 
