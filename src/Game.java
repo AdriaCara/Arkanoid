@@ -13,8 +13,8 @@ public class Game extends JPanel {
 
 	Ball ball = new Ball(this);
 	Racquet racquet = new Racquet(this);
-	double Ballspeed = 2;
-	double RacquetSpeed = 2.5;
+	static double Ballspeed = 2.5;
+	double RacquetSpeed = 5;
 	int Score = 0;
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();
 	static Brick brick;
@@ -53,7 +53,7 @@ public class Game extends JPanel {
 		Sounds.BgSound.loop();
 	}
 
-	private void move() {
+	private void move() throws InterruptedException {
 
 		ball.move();
 		racquet.move();
@@ -92,8 +92,13 @@ public class Game extends JPanel {
 			
 			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width/2/3;
 			
-			ball.x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
+			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 4 / 2);
 			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height/1.5);
+			if (ball.xa < 0) {
+				
+				ball.xa *= -1;
+				
+			}
 			
 		}
 
@@ -101,7 +106,7 @@ public class Game extends JPanel {
 	
 	public void win() {
 		
-		if (bricks.size() < 1) {
+		if (bricks.size() <= 0) {
 			
 			Sounds.BgSound.stop();
 			JOptionPane.showMessageDialog(this, "Well done! your Score is: " + getScore(), "GG", JOptionPane.YES_NO_OPTION);
@@ -113,18 +118,21 @@ public class Game extends JPanel {
 
 	public static void StartGame() throws InterruptedException {
 
+		Brick.createBricks(bricks, brick);
 		int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
+		
+		JFrame menu = new JFrame("Menu");
+		
 
-		JFrame frame = new JFrame("Arkanoid");
+		JFrame gameFrame = new JFrame("Arkanoid");
 		Game game = new Game();
-		Brick.createBricks(bricks, brick);
-		frame.add(game);
-		frame.setBounds(WIDTH /2, HEIGHT, WIDTH / 2, HEIGHT);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gameFrame.add(game);
+		gameFrame.setBounds(WIDTH /2, HEIGHT, WIDTH / 2, HEIGHT);
+		gameFrame.setResizable(false);
+		gameFrame.setLocationRelativeTo(null);
+		gameFrame.setVisible(true);
+		gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		while (true) {
 

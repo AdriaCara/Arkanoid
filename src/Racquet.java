@@ -13,6 +13,9 @@ public class Racquet extends JPanel{
 	double x = 0;
 	double xa = 0;
 	private Game game;
+	boolean effectLeft ;
+	boolean effectRight;
+	static boolean invertedControls = false;
 	
 	public Racquet(Game game) {
 		
@@ -47,15 +50,40 @@ public class Racquet extends JPanel{
 	
 	public void KeyPressed(KeyEvent e) {
 		
-		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			
-			xa = -game.RacquetSpeed;
-			
-		}
+		effectLeft = false;
+		effectRight = false;
 		
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		if (!invertedControls) {
 			
-			xa = game.RacquetSpeed;
+			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+				
+				xa = -game.RacquetSpeed;
+				effectLeft = true;
+				
+			}
+			
+			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+				
+				xa = game.RacquetSpeed;
+				effectRight = true;
+				
+			}
+			
+		} else {
+			
+			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+				
+				xa = game.RacquetSpeed;
+				effectRight = true;
+				
+			}
+			
+			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+				
+				xa = -game.RacquetSpeed;
+				effectLeft = true;
+				
+			}
 			
 		}
 		
