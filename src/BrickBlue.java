@@ -1,11 +1,22 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class BrickBlue extends Brick {
 
+	private Racquet racquet;
+	
 	public BrickBlue(double X, double Y, Game game) {
 		super(0, X, Y, game, true);
-		// TODO Auto-generated constructor stub
+		/*try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("BrickTest.PNG"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}*/
 	}
 	
 	@Override
@@ -13,6 +24,7 @@ public class BrickBlue extends Brick {
 
 		g.setColor(Color.BLUE);
 		g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
+		//g.drawImage(imagen, (int)x, (int)y, WIDTH, HEIGHT, null);
 
 	}
 	
@@ -20,10 +32,16 @@ public class BrickBlue extends Brick {
 	public void action(int i) {
 		
 		Game.bricks.remove(i);
+        
+		if (racquet.invertedControls) {
 
-    	Game.RacquetSpeed+= 5;
-        	
-        Game.RacquetSpeed -= 5;
+			racquet.invertedControls = false;
+
+		} else {
+
+			racquet.invertedControls = true;
+
+		}
 		
 	}
 

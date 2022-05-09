@@ -13,8 +13,8 @@ public class Game extends JPanel {
 
 	Ball ball = new Ball(this);
 	Racquet racquet = new Racquet(this);
-	static double Ballspeed = 2.5;
-	static double RacquetSpeed = 5;
+	static double Ballspeed = 3.5;
+	static double RacquetSpeed = 6;
 	int Score = 0;
 	static int level = 0;
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();
@@ -28,6 +28,8 @@ public class Game extends JPanel {
 
 	public Game() {
 
+		setBackground(new Color(0,0,0));
+		
 		addKeyListener(new KeyListener() {
 
 			@Override
@@ -98,7 +100,7 @@ public class Game extends JPanel {
 		} else {
 
 			racquet.LIVES -= 1;
-			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 3;
+			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.5;
 
 			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 4 / 2);
 			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
@@ -155,7 +157,8 @@ public class Game extends JPanel {
 		int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
 
-		JFrame menu = new JFrame("Menu");
+		String usuari = JOptionPane.showInputDialog("Nombre Usuario");
+		
 		Game game = new Game();
 
 		JFrame gameFrame = new JFrame("Arkanoid");

@@ -1,18 +1,20 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public abstract class Brick {
 
-	static final int WIDTH = 135;
-	static final int HEIGHT = 45;
+	static final int WIDTH = 112;
+	static final int HEIGHT = 35;
 	int LIVES;
 	double x;
 	double y;
 	boolean Alive = true;
+	protected BufferedImage imagen;
 	private static Game game;
 	
 	public abstract void paint(Graphics2D g);
@@ -40,7 +42,7 @@ public abstract class Brick {
 		int PosY = 5;
 		int percentage;
 
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 54; i++) {
 
 			percentage = (int) (Math.random() * 100);
 
@@ -94,7 +96,7 @@ public abstract class Brick {
 
 			PosX += (WIDTH + 5);
 
-			if ((i + 2)%5 == 1 && 1%(i + 2) == 1) {
+			if ((i + 2)%6 == 1 && 1%(i + 2) == 1) {
 
 				PosX = 5;
 				PosY += (HEIGHT + 5);

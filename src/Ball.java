@@ -5,7 +5,7 @@ import java.awt.geom.Ellipse2D;
 
 public class Ball extends JPanel {
 
-	private static final int DIAMETER = 30;
+	private static final int DIAMETER = 20;
 	double x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
 	double y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
 	static double xa = 1;
