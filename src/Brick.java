@@ -58,7 +58,7 @@ public abstract class Brick {
 
 				} else if ((percentage < 30) && (percentage >= 1)) {
 
-					brick = new BrickBlue(PosX, PosY, game);
+					brick = new BrickYellow(PosX, PosY, game);
 
 				} else {
 					
@@ -78,11 +78,11 @@ public abstract class Brick {
 
 				} else if ((percentage < 40) && (percentage >= 10)) {
 
-					brick = new BrickBlue(PosX, PosY, game);
+					brick = new BrickYellow(PosX, PosY, game);
 
 				} else if ((percentage < 10) && (percentage >= 1)) {
 					
-					brick = new BrickYellow(PosX, PosY, game);
+					brick = new BrickBlue(PosX, PosY, game);
 					
 				} else {
 					
