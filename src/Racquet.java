@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Racquet extends JPanel{
 
 	static int Y;
-	private static final int WIDTH = 200;
+	private static final int WIDTH = 100;
 	private static final int HEIGHT = 10;
 	static int LIVES = 2;
 	double x = 0;
@@ -20,7 +20,7 @@ public class Racquet extends JPanel{
 	public Racquet(Game game) {
 		
 		Y = Toolkit.getDefaultToolkit().getScreenSize().height - HEIGHT - 100;
-		x = Toolkit.getDefaultToolkit().getScreenSize().width/2/3;
+		x = Toolkit.getDefaultToolkit().getScreenSize().width/2/2.5;
 		this.game = game;
 		
 	}
@@ -46,12 +46,11 @@ public class Racquet extends JPanel{
 		
 		xa = 0;
 		
+		effectLeft = false;
+		effectRight = false;		
 	}
 	
 	public void KeyPressed(KeyEvent e) {
-		
-		effectLeft = false;
-		effectRight = false;
 		
 		if (!invertedControls) {
 			
