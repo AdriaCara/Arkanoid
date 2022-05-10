@@ -1,19 +1,44 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.util.Set;
+
+import javax.imageio.ImageIO;
 
 public class BrickRed extends Brick{
 
 	public BrickRed(double X, double Y, Game game) {
 		super(1, X, Y, game, true);
-		// TODO Auto-generated constructor stub
+		
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick2lifes.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	@Override
 	public void paint(Graphics2D g) {
+		
+		try {
+			
+			if (LIVES == 0) {
+				
+				imagen = ImageIO.read(BrickBlue.class.getResource("RedBlock1life.png"));
+				
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		g.setColor(Color.RED);
-		g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
+		//g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
+		g.drawImage(imagen, (int)x, (int)y, WIDTH, HEIGHT, null);
 
 	}
 	

@@ -23,8 +23,8 @@ public class BrickBlue extends Brick {
 	public void paint(Graphics2D g) {
 
 		g.setColor(Color.BLUE);
-		g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
-		//g.drawImage(imagen, (int)x, (int)y, WIDTH, HEIGHT, null);
+		//g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
+		g.drawImage(imagen, (int)x, (int)y, WIDTH, HEIGHT, null);
 
 	}
 	
