@@ -29,7 +29,7 @@ public class BrickRed extends Brick{
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick1life.png"));
 				
-			} else if ((LIVES == 0) && !(Alive)) {
+			} else if (!Alive) {
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick0life.png"));
 				

@@ -1,11 +1,14 @@
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Ball extends JPanel {
 
-	private static final int DIAMETER = 20;
+	private static final int DIAMETER = 30;
 	double x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
 	double y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
 	static double xa = 2;
@@ -14,7 +17,8 @@ public class Ball extends JPanel {
 	boolean onlyLess = false;
 	double brickMove = 7;
 	private Game game;
-	private Brick brick; 
+	private Brick brick;
+	protected BufferedImage imagen;
 
 	public Ball(Game game) {
 
@@ -187,9 +191,34 @@ public class Ball extends JPanel {
 	}
 
 	public void paint(Graphics2D g) {
+		
+		try {
+
+			if (Racquet.LIVES == 2) {
+				
+				imagen = ImageIO.read(BrickBlue.class.getResource("Ball3lifes.png"));
+				
+			} else if (Racquet.LIVES == 1) {
+				
+				imagen = ImageIO.read(BrickBlue.class.getResource("Ball2lifes.png"));
+				
+			} else if (Racquet.LIVES == 0) {
+				
+				imagen = ImageIO.read(BrickBlue.class.getResource("Ball1life.png"));
+				
+			} else {
+				
+				imagen = ImageIO.read(BrickBlue.class.getResource("Ball4lifes.png"));
+				
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		game.racquet.setColor(g);
-		g.fillOval((int) x, (int) y, DIAMETER, DIAMETER);
+		//g.fillOval((int) x, (int) y, DIAMETER, DIAMETER);
+		g.drawImage(imagen, (int)x, (int)y, DIAMETER, DIAMETER, null);
 
 	}
 
