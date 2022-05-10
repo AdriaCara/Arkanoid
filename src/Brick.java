@@ -92,8 +92,6 @@ public abstract class Brick {
 				
 			}
 			
-			brick = new BrickGreen(PosX, PosY, game);
-			
 			bricks.add(brick);
 
 			PosX += (WIDTH + 5);
