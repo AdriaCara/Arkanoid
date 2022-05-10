@@ -20,6 +20,23 @@ public class BrickGreen extends Brick {
 	@Override
 	public void paint(Graphics2D g) {
 		
+		try {
+			
+			if (LIVES == 1) {
+				
+				imagen = ImageIO.read(BrickBlue.class.getResource("GreenBrick2lifes.png"));
+				
+			} else if (LIVES == 0) {
+				
+				imagen = ImageIO.read(BrickBlue.class.getResource("GreenBrick1life.png"));
+				
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		g.setColor(Color.GREEN);
 		//g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
 		g.drawImage(imagen, (int)x, (int)y, WIDTH, HEIGHT, null);
