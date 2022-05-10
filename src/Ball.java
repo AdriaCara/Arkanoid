@@ -8,8 +8,8 @@ public class Ball extends JPanel {
 	private static final int DIAMETER = 20;
 	double x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
 	double y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
-	static double xa = 1;
-	static double ya = 1;
+	static double xa = 2;
+	static double ya = 2;
 	boolean down = false;
 	boolean onlyLess = false;
 	double brickMove = 7;

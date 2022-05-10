@@ -12,19 +12,19 @@ public class BrickBlue extends Brick {
 	
 	public BrickBlue(double X, double Y, Game game) {
 		super(0, X, Y, game, true);
-		/*try {
-			imagen = ImageIO.read(BrickBlue.class.getResource("BrickTest.PNG"));
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("BlueBrick.PNG"));
 		} catch (IOException e) {
 			e.printStackTrace();
-		}*/
+		}
 	}
 	
 	@Override
 	public void paint(Graphics2D g) {
 
 		g.setColor(Color.BLUE);
-		g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
-		//g.drawImage(imagen, (int)x, (int)y, WIDTH, HEIGHT, null);
+		//g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
+		g.drawImage(imagen, (int)x, (int)y, WIDTH, HEIGHT, null);
 
 	}
 	
