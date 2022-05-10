@@ -12,11 +12,11 @@ public class BrickBlue extends Brick {
 	
 	public BrickBlue(double X, double Y, Game game) {
 		super(0, X, Y, game, true);
-		/*try {
-			imagen = ImageIO.read(BrickBlue.class.getResource("BrickTest.PNG"));
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("BlueBrick.PNG"));
 		} catch (IOException e) {
 			e.printStackTrace();
-		}*/
+		}
 	}
 	
 	@Override

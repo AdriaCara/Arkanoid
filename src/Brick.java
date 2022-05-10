@@ -92,7 +92,7 @@ public abstract class Brick {
 				
 			}
 			
-			brick = new BrickRed(PosX, PosY, game);
+			brick = new BrickBlue(PosX, PosY, game);
 			
 			bricks.add(brick);
 
