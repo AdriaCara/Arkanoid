@@ -27,7 +27,7 @@ public class BrickRed extends Brick{
 			
 			if (LIVES == 0) {
 				
-				imagen = ImageIO.read(BrickBlue.class.getResource("RedBlock1life.png"));
+				imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick1life.png"));
 				
 			}
 			
