@@ -31,6 +31,7 @@ public class BrickBlue extends Brick {
 	@Override
 	public void action(int i) {
 		
+		Game.Score += 1;
 		Game.bricks.remove(i);
         
 		if (racquet.invertedControls) {

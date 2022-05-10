@@ -15,7 +15,7 @@ public class Game extends JPanel {
 	Racquet racquet = new Racquet(this);
 	static double Ballspeed = 3.5;
 	static double RacquetSpeed = 6;
-	int Score = 0;
+	static int Score = 0;
 	static int level = 0;
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();
 	static Brick brick;

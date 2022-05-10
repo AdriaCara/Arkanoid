@@ -46,6 +46,7 @@ public class BrickMagenta extends Brick {
 	@Override
 	public void action(int i) {
 
+		Game.Score += 2;
 		Game.bricks.remove(i);
 		if (racquet.LIVES <= 2) {
 			

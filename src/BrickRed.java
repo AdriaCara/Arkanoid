@@ -49,6 +49,7 @@ public class BrickRed extends Brick{
 	@Override
 	public void action(int i) {
 		
+		Game.Score += 2;
 		Alive = false;
 		
 	}

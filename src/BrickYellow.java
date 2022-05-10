@@ -29,6 +29,7 @@ public class BrickYellow extends Brick {
 	@Override
 	public void action(int i) {
 
+		Game.Score += 1;
 		Game.bricks.remove(i);
 
     	Game.RacquetSpeed+= 5;
