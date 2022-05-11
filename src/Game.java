@@ -186,7 +186,7 @@ public class Game extends JPanel {
 
 		Brick.createBricks(bricks, brick);
 		int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
-		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
+		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height - (Toolkit.getDefaultToolkit().getScreenSize().height / 10);
 		
 		Game game = new Game();
 
