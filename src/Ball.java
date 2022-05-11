@@ -64,11 +64,11 @@ public class Ball extends JPanel {
 
 					if (xa > 0) {
 
-						xa *= -game.Ballspeed;
+						xa *= -1;
 
 					} else {
 						
-						xa *= game.Ballspeed;
+						xa *= 1;
 						
 					}
 
@@ -76,11 +76,11 @@ public class Ball extends JPanel {
 
 					if (xa < 0) {
 
-						xa *= -game.Ballspeed;
+						xa *= -1;
 
 					} else {
 						
-						xa *= game.Ballspeed;
+						xa *= 1;
 						
 					}
 
@@ -88,14 +88,14 @@ public class Ball extends JPanel {
 
 				if (game.Ballspeed < 8) {
 
-					game.Ballspeed += 0.1;
+					game.Ballspeed += 0.2;
 
 				}
 
 				if (game.RacquetSpeed < 8.5) {
 
-					game.RacquetSpeed += 0.1;
-
+					game.RacquetSpeed += 0.2;
+					
 				}
 				
 			}
@@ -151,6 +151,9 @@ public class Ball extends JPanel {
 
 		x = x + xa;
 		y = y + ya;
+		
+		System.out.println("xa = " + xa);
+		System.out.println("ya = " + ya);
 
 		game.win();
 	}
