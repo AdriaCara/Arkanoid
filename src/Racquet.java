@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 public class Racquet extends JPanel{
 
 	static int Y;
-	private static final int WIDTH = 100;
-	private static final int HEIGHT = 10;
+	private static final int WIDTH = ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 15));
+	private static final int HEIGHT = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	static int LIVES = 2;
 	double x = 0;
 	double xa = 0;
@@ -19,8 +19,8 @@ public class Racquet extends JPanel{
 	
 	public Racquet(Game game) {
 		
-		Y = Toolkit.getDefaultToolkit().getScreenSize().height - HEIGHT - 100;
-		x = Toolkit.getDefaultToolkit().getScreenSize().width/2/2.5;
+		Y = (((Toolkit.getDefaultToolkit().getScreenSize().height) - HEIGHT) - ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 18)));
+		x = (Toolkit.getDefaultToolkit().getScreenSize().width/2/2.5);
 		this.game = game;
 		
 	}
@@ -83,6 +83,12 @@ public class Racquet extends JPanel{
 				effectLeft = true;
 				
 			}
+			
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			
+			Game.State = Game.State.MENUESCAPE;
 			
 		}
 		

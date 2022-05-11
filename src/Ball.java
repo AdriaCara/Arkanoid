@@ -172,7 +172,6 @@ public class Ball extends JPanel {
 			if (game.bricks.get(i).LIVES <= 0) {
 
 				game.bricks.get(i).action(i);
-				game.Score += 1;
 
 			} else {
 

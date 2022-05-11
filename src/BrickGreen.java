@@ -46,6 +46,7 @@ public class BrickGreen extends Brick {
 	@Override
 	public void action(int i) {
 		
+		Game.Score += 3;
 		Game.bricks.remove(i);
 		
 	}}

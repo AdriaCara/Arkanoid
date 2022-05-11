@@ -15,10 +15,14 @@ public class Game extends JPanel {
 	Racquet racquet = new Racquet(this);
 	static double Ballspeed = 3.5;
 	static double RacquetSpeed = 6;
-	int Score = 0;
+	static int Score = 0;
 	static int level = 0;
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();
 	static Brick brick;
+	private Menu menu = new Menu();
+	private MenuEscape menuEscape = new MenuEscape();
+	private HowToPlay howToPlay = new HowToPlay();
+	public static STATE State = STATE.MENU;
 
 	private int getScore() {
 
@@ -30,6 +34,7 @@ public class Game extends JPanel {
 
 		setBackground(new Color(0,0,0));
 		
+		this.addMouseListener(new MouseInput());
 		addKeyListener(new KeyListener() {
 
 			@Override
@@ -51,35 +56,53 @@ public class Game extends JPanel {
 			}
 
 		});
+	
 
 		setFocusable(true);
 		Sounds.BgSound.loop();
+		
 	}
 
 	private void move() throws InterruptedException {
 
-		ball.move();
-		racquet.move();
+		if(State == STATE.GAME) {
+			
+			ball.move();
+			racquet.move();
+			
+		}
 
 	}
 
 	@Override
 	public void paint(Graphics g) {
 
-		super.paint(g);
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		ball.paint(g2d);
-		racquet.paint(g2d);
-		for (int i = 0; i < bricks.size(); i++) {
+		if(State == STATE.GAME) {
+			
+			super.paint(g);
+			Graphics2D g2d = (Graphics2D) g;
+			g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+			ball.paint(g2d);
+			racquet.paint(g2d);
+			for (int i = 0; i < bricks.size(); i++) {
 
-			bricks.get(i).paint(g2d);
+				bricks.get(i).paint(g2d);
 
+			}
+
+			g2d.setColor(Color.BLACK);
+			g2d.setFont(new Font("Verdana", Font.BOLD, 30));
+			g2d.drawString(String.valueOf(getScore()), 10, 30);
+			
+		} else if (State == STATE.MENU) {
+			
+			menu.render(g);
+			
+		} else if (State == STATE.MENUESCAPE){
+			
+			menuEscape.render(g);
+			
 		}
-
-		g2d.setColor(Color.BLACK);
-		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
-		g2d.drawString(String.valueOf(getScore()), 10, 30);
 	}
 
 	public void gameOver() {
@@ -148,7 +171,15 @@ public class Game extends JPanel {
 			}
 
 		}
-
+	}
+	
+	public enum STATE {
+		
+		MENU,
+		GAME,
+		MENUESCAPE,
+		HOWTOPLAY
+		
 	}
 
 	public static void StartGame() throws InterruptedException {
@@ -156,8 +187,6 @@ public class Game extends JPanel {
 		Brick.createBricks(bricks, brick);
 		int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
-
-		String usuari = JOptionPane.showInputDialog("Nombre Usuario");
 		
 		Game game = new Game();
 
@@ -172,10 +201,10 @@ public class Game extends JPanel {
 		gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		while (true) {
-
-			game.move();
-			game.repaint();
-			Thread.sleep(10);
+				
+				game.move();
+				game.repaint();
+				Thread.sleep(10);
 
 		}
 
