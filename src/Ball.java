@@ -8,14 +8,14 @@ import java.io.IOException;
 
 public class Ball extends JPanel {
 
-	private static final int DIAMETER = 30;
+	private static final int DIAMETER = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30));;
 	double x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
 	double y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
-	static double xa = 2;
-	static double ya = 2;
+	static double xa = ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 800));
+	static double ya = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 1066));
 	boolean down = false;
 	boolean onlyLess = false;
-	double brickMove = 7;
+	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 100));
 	private Game game;
 	private Brick brick;
 	protected BufferedImage imagen;

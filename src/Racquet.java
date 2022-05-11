@@ -15,6 +15,7 @@ public class Racquet extends JPanel{
 	private Game game;
 	boolean effectLeft ;
 	boolean effectRight;
+	boolean menuEscape = false;
 	static boolean invertedControls = false;
 	
 	public Racquet(Game game) {
@@ -88,7 +89,17 @@ public class Racquet extends JPanel{
 		
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 			
-			Game.State = Game.State.MENUESCAPE;
+			if (Game.State == Game.State.GAME) {
+				
+				Game.State = Game.State.MENUESCAPE;
+				menuEscape = true;
+				
+			} else if (menuEscape) {
+				
+				menuEscape = false;
+				Game.State = Game.State.GAME;
+				
+			}
 			
 		}
 		
