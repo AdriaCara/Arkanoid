@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -8,8 +9,8 @@ import javax.swing.JLabel;
 
 public abstract class Brick {
 
-	static final int WIDTH = 112;
-	static final int HEIGHT = 35;
+	static final int WIDTH = ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9)));
+	static final int HEIGHT = ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 26.6)));
 	int LIVES;
 	double x;
 	double y;
@@ -38,8 +39,8 @@ public abstract class Brick {
 
 	public static void createBricks(ArrayList<Brick> bricks, Brick brick) {
 
-		int PosX = 5;
-		int PosY = 5;
+		int PosX = ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 300)));
+		int PosY = ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 300)));
 		int percentage;
 
 		for (int i = 0; i < 54; i++) {
@@ -94,12 +95,12 @@ public abstract class Brick {
 			
 			bricks.add(brick);
 
-			PosX += (WIDTH + 5);
+			PosX += (WIDTH + ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 300))));
 
 			if ((i + 2)%6 == 1 && 1%(i + 2) == 1) {
 
-				PosX = 5;
-				PosY += (HEIGHT + 5);
+				PosX = ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 300)));
+				PosY += (HEIGHT + ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 300))));
 
 			}
 
