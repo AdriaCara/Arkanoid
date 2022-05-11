@@ -138,7 +138,6 @@ public class Ball extends JPanel {
 			if (!(game.bricks.get(i).Alive)) {
 				
 				game.bricks.get(i).y += brickMove;
-				System.out.println("BM = " + brickMove);
 				
 				if (Game.bricks.get(i).y > game.racquet.Y) {
 					
