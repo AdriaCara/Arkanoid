@@ -152,9 +152,6 @@ public class Ball extends JPanel {
 		x = x + xa;
 		y = y + ya;
 		
-		System.out.println("xa = " + xa);
-		System.out.println("ya = " + ya);
-
 		game.win();
 	}
 
