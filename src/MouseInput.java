@@ -1,4 +1,5 @@
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -26,12 +27,16 @@ public class MouseInput implements MouseListener{
 		 * 	public Rectangle playButton = new Rectangle(	Game.WIDTH / 2 + 100, 150, 100, 50);
 		 * 	public Rectangle howToPlayButton = new Rectangle(Game.WIDTH / 2 + 100, 250, 215, 50);
 		 * 	public Rectangle quitButton = new Rectangle(	Game.WIDTH / 2 + 100, 350, 100, 50);
+		 * 
+		 * 	public Rectangle playButton = new Rectangle(	(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)), (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 5.5)), (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 14)), (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20)));
+		 * 	public Rectangle howToPlayButton = new Rectangle((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)), (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 2.3)), (int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.5)), (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20)));
+		 * 	public Rectangle quitButton = new Rectangle(	(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)), (int) (Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.5)), (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 17)), (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20)));
 		 * */
 		
 		//Start game.
-		if (mx >= Game.WIDTH / 2 + 100 && mx <= Game.WIDTH / 2 + 200 ) {
+		if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) && (mx <= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 14))))) {
 			
-			if (my >= 150 && my <= 200) {
+			if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 5.5))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 5.5))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
 				
 				//Pressed Play Button
 				Game.State = Game.State.GAME;
@@ -41,9 +46,9 @@ public class MouseInput implements MouseListener{
 		}
 		
 		//How To Play Game.
-		if (mx >= Game.WIDTH / 2 + 100 && mx <= Game.WIDTH / 2 + 315 ) {
+		if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.5))))) {
 			
-			if (my >= 250 && my <= 300) {
+			if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 2.3))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 2.3))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
 				
 				//Pressed How To Play Button
 				Game.State = Game.State.HOWTOPLAY;
@@ -53,9 +58,9 @@ public class MouseInput implements MouseListener{
 		}
 		
 		//Quit Game.
-		if (mx >= Game.WIDTH / 2 + 100 && mx <= Game.WIDTH / 2 + 200 ) {
+		if ((mx >= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 17))))) {
 			
-			if (my >= 350 && my <= 400) {
+			if ((my >= (int)(Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.5))) && (my <= ((Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.5))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
 				
 				//Pressed Quit Button
 				System.exit(1);

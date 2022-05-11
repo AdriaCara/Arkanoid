@@ -20,6 +20,7 @@ public class Game extends JPanel {
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();
 	static Brick brick;
 	private Menu menu = new Menu();
+	private MenuEscape menuEscape = new MenuEscape();
 	private HowToPlay howToPlay = new HowToPlay();
 	public static STATE State = STATE.MENU;
 
@@ -97,10 +98,9 @@ public class Game extends JPanel {
 			
 			menu.render(g);
 			
-		} else {
+		} else if (State == STATE.MENUESCAPE){
 			
-			Graphics2D g2d = (Graphics2D) g;
-			howToPlay.render(g2d);
+			menuEscape.render(g);
 			
 		}
 	}
@@ -177,6 +177,7 @@ public class Game extends JPanel {
 		
 		MENU,
 		GAME,
+		MENUESCAPE,
 		HOWTOPLAY
 		
 	}

@@ -86,6 +86,12 @@ public class Racquet extends JPanel{
 			
 		}
 		
+		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			
+			Game.State = Game.State.MENUESCAPE;
+			
+		}
+		
 	}
 	
 	public Rectangle getBounds() {
