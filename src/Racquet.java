@@ -20,7 +20,7 @@ public class Racquet extends JPanel{
 	
 	public Racquet(Game game) {
 		
-		Y = (((Toolkit.getDefaultToolkit().getScreenSize().height) - HEIGHT) - ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 18)));
+		Y = (int) (((Toolkit.getDefaultToolkit().getScreenSize().height / 10) - HEIGHT) - (Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 1.35));
 		x = (Toolkit.getDefaultToolkit().getScreenSize().width/2/2.5);
 		this.game = game;
 		

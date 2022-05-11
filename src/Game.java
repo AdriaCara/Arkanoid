@@ -13,7 +13,7 @@ public class Game extends JPanel {
 
 	Ball ball = new Ball(this);
 	Racquet racquet = new Racquet(this);
-	static double Ballspeed = 3.5;
+	static double Ballspeed = 4;
 	static double RacquetSpeed = 6;
 	static int Score = 0;
 	static int level = 0;
@@ -125,7 +125,7 @@ public class Game extends JPanel {
 			racquet.LIVES -= 1;
 			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.5;
 
-			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 15);
+			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 10);
 			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
 			if (ball.xa < 0) {
 
@@ -186,7 +186,7 @@ public class Game extends JPanel {
 
 		Brick.createBricks(bricks, brick);
 		int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
-		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
+		int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height - (Toolkit.getDefaultToolkit().getScreenSize().height / 10);
 		
 		Game game = new Game();
 
