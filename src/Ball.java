@@ -15,6 +15,7 @@ public class Ball extends JPanel {
 	static double ya = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 1066));
 	boolean down = false;
 	boolean onlyLess = false;
+	static boolean yellowEfect = false;
 	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 100));
 	private Game game;
 	private Brick brick;
@@ -89,13 +90,13 @@ public class Ball extends JPanel {
 
 				if (game.Ballspeed < 8) {
 
-					game.Ballspeed += 0.2;
+					game.Ballspeed += 0.1;
 
 				}
 
 				if (game.RacquetSpeed < 8.5) {
 
-					game.RacquetSpeed += 0.2;
+					game.RacquetSpeed += 0.1;
 					
 				}
 				
@@ -196,7 +197,7 @@ public class Ball extends JPanel {
 		
 		try {
 
-			if (Racquet.LIVES == 4) {
+			if (Racquet.LIVES >= 4) {
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("Ball4lifes.png"));
 				

@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Racquet extends JPanel{
 
 	static int Y;
-	private static final int WIDTH = ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 15));
+	private static final int WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
 	private static final int HEIGHT = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	static int LIVES = 3;
 	double x = 0;
@@ -21,7 +21,7 @@ public class Racquet extends JPanel{
 	public Racquet(Game game) {
 		
 		Y = (int) (((Toolkit.getDefaultToolkit().getScreenSize().height / 10) - HEIGHT) - (Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 1.35));
-		x = (Toolkit.getDefaultToolkit().getScreenSize().width/2/2.5);
+		x = (Toolkit.getDefaultToolkit().getScreenSize().width/2/2.4);
 		this.game = game;
 		
 	}
@@ -133,7 +133,11 @@ public class Racquet extends JPanel{
 	
 	public void setColor(Graphics2D g) {
 		
-		if (LIVES == 3) {
+		if (LIVES >= 4) {
+			
+			g.setColor(Color.MAGENTA);
+			
+		} else if (LIVES == 3) {
 			
 			g.setColor(Color.BLUE);
 			
@@ -145,11 +149,7 @@ public class Racquet extends JPanel{
 			
 			g.setColor(Color.RED);
 			
-		} else if (LIVES == 4) {
-			
-			g.setColor(Color.MAGENTA);
-			
-		} else {
+		}  else {
 			
 			g.setColor(Color.BLACK);
 			

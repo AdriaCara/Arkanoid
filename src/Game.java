@@ -99,6 +99,18 @@ public class Game extends JPanel {
 			
 		} else if (State == STATE.MENUESCAPE){
 			
+			super.paint(g);
+			Graphics2D g2d = (Graphics2D) g;
+			g2d.setColor(Color.WHITE);
+			g2d.setFont(new Font("arial", Font.BOLD, (int) (Toolkit.getDefaultToolkit().getScreenSize().width / 10)));
+			g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+			ball.paint(g2d);
+			racquet.paint(g2d);
+			for (int i = 0; i < bricks.size(); i++) {
+
+				bricks.get(i).paint(g2d);
+
+			}
 			menuEscape.render(g);
 			
 		}
@@ -121,9 +133,9 @@ public class Game extends JPanel {
 
 		} else {
 
-			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.5;
+			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.4;
 
-			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 10);
+			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 7);
 			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
 			if (ball.xa < 0) {
 

@@ -2,6 +2,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.IOException;
 import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 import javax.management.timer.Timer;
@@ -31,11 +35,25 @@ public class BrickYellow extends Brick {
 
 		Game.Score += 1;
 		Game.bricks.remove(i);
-
-    	Game.RacquetSpeed += 5;
-        	
-        Game.RacquetSpeed -= 5;
-
+		
+		  if (Game.RacquetSpeed < 8.5) {
+			  
+		      Ball.yellowEfect = false;
+			  Game.RacquetSpeed += 5;
+			  
+		  }
+		
+		ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+		ScheduledFuture<?> efect = exec.scheduleAtFixedRate(new Runnable() {
+		  @Override
+		  public void run() {
+			  
+			  Game.RacquetSpeed -= 5;
+		      exec.shutdown();
+		    
+		  }
+		}, (long) 10, 1, TimeUnit.SECONDS);
+		
 	}
 
 }

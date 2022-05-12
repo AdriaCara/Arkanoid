@@ -48,7 +48,7 @@ public class BrickMagenta extends Brick {
 
 		Game.Score += 2;
 		Game.bricks.remove(i);
-		if (racquet.LIVES <= 2) {
+		if (racquet.LIVES <= 3) {
 			
 			Racquet.LIVES ++;
 			

@@ -73,32 +73,20 @@ public class MouseInput implements MouseListener{
 			
 		} else if (Game.State == Game.State.MENUESCAPE) {
 			
-			//Start game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) && (mx <= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.2))))) {
+			//Start Game.
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.2))))) {
 				
-				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.10))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.10))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
+				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.9))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.9))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
 					
-					//Pressed Play Button
+					//Pressed How To Play Button
 					Game.State = Game.State.GAME;
 					
 				}
 				
 			}
 			
-			//How To Play Game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.5))))) {
-				
-				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.9))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.9))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
-					
-					//Pressed How To Play Button
-					Game.State = Game.State.HOWTOPLAY;
-					
-				}
-				
-			}
-			
 			//Quit Game.
-			if ((mx >= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 17))))) {
+			if ((mx >= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.6)))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.6))) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 17))))) {
 				
 				if ((my >= (int)(Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.75))) && (my <= ((Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.75))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
 					
