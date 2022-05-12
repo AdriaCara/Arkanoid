@@ -81,6 +81,9 @@ public class Game extends JPanel {
 			
 			super.paint(g);
 			Graphics2D g2d = (Graphics2D) g;
+			g2d.setColor(Color.WHITE);
+			g2d.setFont(new Font("arial", Font.BOLD, (int) (Toolkit.getDefaultToolkit().getScreenSize().width / 10)));
+			g2d.drawString("( " + getScore() + " )", (int) (Toolkit.getDefaultToolkit().getScreenSize().width / 6), (int) (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5));
 			g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 			ball.paint(g2d);
 			racquet.paint(g2d);
@@ -89,10 +92,6 @@ public class Game extends JPanel {
 				bricks.get(i).paint(g2d);
 
 			}
-
-			g2d.setColor(Color.BLACK);
-			g2d.setFont(new Font("Verdana", Font.BOLD, 30));
-			g2d.drawString(String.valueOf(getScore()), 10, 30);
 			
 		} else if (State == STATE.MENU) {
 			
@@ -122,7 +121,6 @@ public class Game extends JPanel {
 
 		} else {
 
-			racquet.LIVES -= 1;
 			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.5;
 
 			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 10);

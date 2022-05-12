@@ -9,7 +9,7 @@ import javax.management.timer.Timer;
 public class BrickYellow extends Brick {
 
 	public BrickYellow(double X, double Y, Game game) {
-		super(0, X, Y, game, true);
+		super(1, X, Y, game, true);
 		try {
 			imagen = ImageIO.read(BrickBlue.class.getResource("YellowBrick.png"));
 		} catch (IOException e) {
@@ -32,7 +32,7 @@ public class BrickYellow extends Brick {
 		Game.Score += 1;
 		Game.bricks.remove(i);
 
-    	Game.RacquetSpeed+= 5;
+    	Game.RacquetSpeed += 5;
         	
         Game.RacquetSpeed -= 5;
 
