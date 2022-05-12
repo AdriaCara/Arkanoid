@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 public class BrickRed extends Brick{
 
 	public BrickRed(double X, double Y, Game game) {
-		super(1, X, Y, game, true);
+		super(2, X, Y, game, true);
 		
 		try {
 			imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick2lifes.png"));
@@ -25,11 +25,11 @@ public class BrickRed extends Brick{
 		
 		try {
 			
-			if (LIVES == 0) {
+			if (LIVES == 1) {
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick1life.png"));
 				
-			} else if (!Alive) {
+			} else if (LIVES <= 0) {
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick0life.png"));
 				

@@ -15,6 +15,7 @@ public class Ball extends JPanel {
 	static double ya = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 1066));
 	boolean down = false;
 	boolean onlyLess = false;
+	static boolean yellowEfect = false;
 	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 100));
 	private Game game;
 	private Brick brick;
@@ -29,7 +30,6 @@ public class Ball extends JPanel {
 	void move() {
 
 		boolean changeDirection = true;
-		boolean down = false;
 
 		for (int i = 0; i < game.bricks.size(); i++) {
 
@@ -53,7 +53,9 @@ public class Ball extends JPanel {
 
 			else if (y + ya > game.getHeight() - DIAMETER) {
 
+				game.racquet.LIVES -= 1;
 				game.gameOver();
+				
 			}
 
 			else if (collisionRacquet()) {
@@ -88,13 +90,13 @@ public class Ball extends JPanel {
 
 				if (game.Ballspeed < 8) {
 
-					game.Ballspeed += 0.2;
+					game.Ballspeed += 0.1;
 
 				}
 
 				if (game.RacquetSpeed < 8.5) {
 
-					game.RacquetSpeed += 0.2;
+					game.RacquetSpeed += 0.1;
 					
 				}
 				
@@ -103,6 +105,7 @@ public class Ball extends JPanel {
 			else if ((x + DIAMETER + xa > game.bricks.get(i).x) && (x + xa < game.bricks.get(i).x + Brick.WIDTH)
 					&& (y + DIAMETER > game.bricks.get(i).y) && (y < game.bricks.get(i).y + Brick.HEIGHT) && game.bricks.get(i).Alive) {
 
+				down = false;
 				breakBricks(i, down);
 
 			}
@@ -152,9 +155,6 @@ public class Ball extends JPanel {
 		x = x + xa;
 		y = y + ya;
 		
-		System.out.println("xa = " + xa);
-		System.out.println("ya = " + ya);
-
 		game.win();
 	}
 
@@ -172,8 +172,9 @@ public class Ball extends JPanel {
 		Sounds.BallSound.play();
 		if (game.bricks.get(i).Alive) {
 			
-			if (game.bricks.get(i).LIVES <= 0) {
-
+			if (game.bricks.get(i).LIVES <= 1) {
+				
+				game.bricks.get(i).LIVES--;
 				game.bricks.get(i).action(i);
 
 			} else {
@@ -196,21 +197,21 @@ public class Ball extends JPanel {
 		
 		try {
 
-			if (Racquet.LIVES == 2) {
+			if (Racquet.LIVES >= 4) {
+				
+				imagen = ImageIO.read(BrickBlue.class.getResource("Ball4lifes.png"));
+				
+			} else if (Racquet.LIVES == 3) {
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("Ball3lifes.png"));
 				
-			} else if (Racquet.LIVES == 1) {
+			} else if (Racquet.LIVES == 2) {
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("Ball2lifes.png"));
 				
-			} else if (Racquet.LIVES == 0) {
-				
-				imagen = ImageIO.read(BrickBlue.class.getResource("Ball1life.png"));
-				
 			} else {
 				
-				imagen = ImageIO.read(BrickBlue.class.getResource("Ball4lifes.png"));
+				imagen = ImageIO.read(BrickBlue.class.getResource("Ball1life.png"));
 				
 			}
 			

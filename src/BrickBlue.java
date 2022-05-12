@@ -11,7 +11,7 @@ public class BrickBlue extends Brick {
 	private Racquet racquet;
 	
 	public BrickBlue(double X, double Y, Game game) {
-		super(0, X, Y, game, true);
+		super(1, X, Y, game, true);
 		try {
 			imagen = ImageIO.read(BrickBlue.class.getResource("BlueBrick.PNG"));
 		} catch (IOException e) {

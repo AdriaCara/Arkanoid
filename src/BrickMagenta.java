@@ -11,7 +11,7 @@ public class BrickMagenta extends Brick {
 	private Racquet racquet;
 
 	public BrickMagenta(double X, double Y, Game game) {
-		super(1, X, Y, game, true);
+		super(2, X, Y, game, true);
 		try {
 			
 			imagen = ImageIO.read(BrickBlue.class.getResource("MagentaBrick2lifes.png"));
@@ -25,7 +25,7 @@ public class BrickMagenta extends Brick {
 	public void paint(Graphics2D g) {
 			
 		try {
-			if (LIVES == 0) {
+			if (LIVES == 1) {
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("MagentaBrick1lifes.png"));
 				
@@ -48,7 +48,7 @@ public class BrickMagenta extends Brick {
 
 		Game.Score += 2;
 		Game.bricks.remove(i);
-		if (racquet.LIVES <= 2) {
+		if (racquet.LIVES <= 3) {
 			
 			Racquet.LIVES ++;
 			
