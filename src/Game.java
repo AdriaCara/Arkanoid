@@ -19,6 +19,7 @@ public class Game extends JPanel {
 	static int level = 0;
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();
 	static Brick brick;
+	static boolean quit = false;
 	private Menu menu = new Menu();
 	private MenuEscape menuEscape = new MenuEscape();
 	private HowToPlay howToPlay = new HowToPlay();
@@ -155,38 +156,29 @@ public class Game extends JPanel {
 
 	public void win() {
 
-		if (bricks.size() <= 0) {
-
-			if (level == 0) {
-
-				level++;
-				Brick.createBricks(bricks, brick);
-
-				racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.5;
-
-				ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 15);
-				ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
-				if (ball.xa < 0) {
-
-					ball.xa *= -1;
-
-				}
-				if (ball.ya < 0) {
-					
-					ball.ya *= -1;
-					
-				}
-
-			} else {
-
-				Sounds.BgSound.stop();
-				JOptionPane.showMessageDialog(this, "Well done! your Score is: " + getScore(), "GG",
-						JOptionPane.YES_NO_OPTION);
-				System.exit(ABORT);
-
+		if (bricks.size() <= 0 || quit) {
+			
+			level++;
+			Brick.createBricks(bricks, brick);
+	
+			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.5;
+	
+			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 15);
+			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
+			if (ball.xa < 0) {
+	
+				ball.xa *= -1;
+	
 			}
+			if (ball.ya < 0) {
+				
+				ball.ya *= -1;
+				
+			}
+			quit = false;
 
 		}
+		
 	}
 	
 	public enum STATE {

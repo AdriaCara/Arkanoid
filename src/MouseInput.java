@@ -92,6 +92,12 @@ public class MouseInput implements MouseListener{
 					
 					//Pressed Quit Button
 					Game.State = Game.State.MENU;
+					Game.quit = true;
+					Game.Ballspeed = 4;
+					Game.RacquetSpeed = 6;
+					Game.Score = 0;
+					Game.level --;
+					Racquet.LIVES = 3;
 					
 				}
 				
