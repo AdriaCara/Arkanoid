@@ -11,6 +11,7 @@ public class Racquet extends JPanel{
 	private static final int HEIGHT = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	static int LIVES = 3;
 	double x = 0;
+	private int currentKeyCode;
 	double xa = 0;
 	private Game game;
 	boolean effectLeft ;
@@ -51,8 +52,15 @@ public class Racquet extends JPanel{
 		effectRight = false;		
 	}
 	
+	public void keyRelease(KeyEvent e) {
+		
+		if (e.getExtendedKeyCode() == currentKeyCode) xa =0; 
+		
+	}
+	
 	public void KeyPressed(KeyEvent e) {
 		
+		currentKeyCode = e.getKeyCode();
 		if (!invertedControls) {
 			
 			if (e.getKeyCode() == KeyEvent.VK_LEFT) {

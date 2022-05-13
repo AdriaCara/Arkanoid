@@ -16,7 +16,7 @@ public class Ball extends JPanel {
 	boolean down = false;
 	boolean onlyLess = false;
 	static boolean yellowEfect = false;
-	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 100));
+	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	private Game game;
 	protected BufferedImage imagen;
 

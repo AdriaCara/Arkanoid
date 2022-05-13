@@ -16,7 +16,7 @@ public abstract class Brick {
 	double y;
 	boolean Alive = true;
 	protected BufferedImage imagen;
-	private static Game game;
+	protected static Game game;
 	
 	public abstract void paint(Graphics2D g);
 	public abstract void action(int i);
