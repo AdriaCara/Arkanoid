@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Ball extends JPanel {
 
-	private static final int DIAMETER = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30));;
+	private static final int DIAMETER = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30));
 	double x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
 	double y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
 	static double xa = ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 800));

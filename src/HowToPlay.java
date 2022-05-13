@@ -31,24 +31,62 @@ public class HowToPlay {
 		try {
 			imagen = ImageIO.read(BrickBlue.class.getResource("YellowBrick.png"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 9)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 26.6))), null);
 		g.drawString("1v", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 9)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 7.1)));
-		g.drawString("Por 10s raqueta +10v", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.8)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 7.1)));
+		g.drawString("Por 10s raqueta +10vel", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.8)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 7.1)));
 		g.drawString("+ 1p", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 2.4)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 7.1)));
 		
 		try {
 			imagen = ImageIO.read(BrickBlue.class.getResource("GreenBrick3lifes.png"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 5)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 26.6))), null);
 		g.drawString("3v", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 9)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 4.3)));
 		g.drawString("Duro de pelar", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 4.3)));
 		g.drawString("+ 3p", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 2.4)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 4.3)));
+		
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick2lifes.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.4)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 26.6))), null);
+		g.drawString("2v", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 9)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.05)));
+		g.drawString("Caer sin parar", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.05)));
+		g.drawString("+ 2p", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 2.4)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.05)));
+		
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("BlueBrick.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2.6)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 26.6))), null);
+		g.drawString("1v", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 9)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2.4)));
+		g.drawString("Invertir control", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2.4)));
+		g.drawString("+ 1p", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 2.4)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2.4)));
+		
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("MagentaBrick2lifes.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2.1)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 26.6))), null);
+		g.drawString("1v", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 9)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1.97)));
+		g.drawString("Una vida más", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1.97)));
+		g.drawString("+ 1p", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 2.4)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1.97)));
+		
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("Ball3lifes.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 25)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1.75)), ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30)), ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30)), null);
+		g.drawString("3v", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 9)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1.67)));
+		g.drawString("Pelota", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.2)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1.67)));
+		g.drawString("Perder", (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 2.5)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1.67)));
 		
 	}
 
