@@ -60,8 +60,6 @@ public class BrickRed extends Brick{
 				
 				for (int i = 2; i < 9; i++) {
 					
-					System.out.println(i);
-					
 					try {
 						imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick0lifse_" + i + "fase.png"));
 					} catch (IOException e) {
