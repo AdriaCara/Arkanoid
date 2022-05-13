@@ -115,19 +115,19 @@ public class Racquet extends JPanel{
 	
 	public Rectangle getBounds() {
 		
-		return new Rectangle((int)x, Y, WIDTH, HEIGHT);
+		return new Rectangle((int)(x + WIDTH/4), Y, (WIDTH / 2), HEIGHT);
 		
 	}
 	
 	public Rectangle getBoundsOne() {
 		
-		return new Rectangle((int)x, Y, WIDTH, HEIGHT);
+		return new Rectangle((int)x, Y, (WIDTH / 4), HEIGHT);
 		
 	}
 	
 	public Rectangle getBoundsFor() {
 		
-		return new Rectangle((int)x + WIDTH / 4, Y, WIDTH  / 4, HEIGHT);
+		return new Rectangle((int)(x + ((WIDTH / 4) * 3)), Y, (WIDTH  / 4), HEIGHT);
 		
 	}
 	

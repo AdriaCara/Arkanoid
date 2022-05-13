@@ -15,6 +15,7 @@ public class Ball extends JPanel {
 	static double ya = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 1066));
 	boolean down = false;
 	boolean onlyLess = false;
+	private int increments = 1;
 	static boolean yellowEfect = false;
 	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	private Game game;
@@ -66,11 +67,11 @@ public class Ball extends JPanel {
 
 					if (xa > 0) {
 
-						xa *= -1;
+						xa *= -increments;
 
 					} else {
 						
-						xa *= 1;
+						xa *= increments;
 						
 					}
 
@@ -78,11 +79,11 @@ public class Ball extends JPanel {
 
 					if (xa < 0) {
 
-						xa *= -1;
+						xa *= -increments;
 
 					} else {
 						
-						xa *= 1;
+						xa *= increments;
 						
 					}
 
@@ -189,9 +190,11 @@ public class Ball extends JPanel {
 
 	private boolean collisionRacquet() {
 		
+		increments = 1;
+		
 		if (game.racquet.getBounds().intersects(getBounds())) {
 			
-			
+			increments = 2;
 			
 		}
 		
