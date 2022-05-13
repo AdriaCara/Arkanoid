@@ -52,7 +52,7 @@ public class BrickYellow extends Brick {
 		      exec.shutdown();
 		    
 		  }
-		}, (long) 10, 1, TimeUnit.SECONDS);
+		}, 10, 1, TimeUnit.SECONDS);
 		
 	}
 

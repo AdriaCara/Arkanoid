@@ -101,7 +101,6 @@ public class Game extends JPanel {
 			
 		} else if (State == STATE.MENUESCAPE){
 			
-			super.paint(g);
 			Graphics2D g2d = (Graphics2D) g;
 			g2d.setColor(Color.WHITE);
 			g2d.setFont(new Font("arial", Font.BOLD, (int) (Toolkit.getDefaultToolkit().getScreenSize().width / 10)));

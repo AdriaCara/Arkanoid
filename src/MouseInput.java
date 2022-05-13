@@ -91,7 +91,7 @@ public class MouseInput implements MouseListener{
 				if ((my >= (int)(Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.75))) && (my <= ((Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.75))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
 					
 					//Pressed Quit Button
-					System.exit(1);
+					Game.State = Game.State.MENU;
 					
 				}
 				
