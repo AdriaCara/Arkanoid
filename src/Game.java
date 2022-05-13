@@ -20,6 +20,7 @@ public class Game extends JPanel {
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();
 	static Brick brick;
 	static boolean quit = false;
+	private boolean dead = false;
 	private Menu menu = new Menu();
 	private MenuEscape menuEscape = new MenuEscape();
 	private HowToPlay howToPlay = new HowToPlay();
@@ -65,6 +66,17 @@ public class Game extends JPanel {
 	private void move() throws InterruptedException {
 
 		if(State == STATE.GAME) {
+			
+			if (dead) {
+				
+				dead = false;
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+			}
 			
 			ball.move();
 			racquet.move();
@@ -149,6 +161,8 @@ public class Game extends JPanel {
 				ball.xa *= -1;
 
 			}
+			
+			dead = true;
 
 		}
 

@@ -15,6 +15,7 @@ public class Ball extends JPanel {
 	static double ya = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 1066));
 	boolean down = false;
 	boolean onlyLess = false;
+	private boolean ballHitted;
 	private int increments = 1;
 	static boolean yellowEfect = false;
 	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
@@ -189,16 +190,24 @@ public class Ball extends JPanel {
 	}
 
 	private boolean collisionRacquet() {
-		
-		increments = 1;
+	
+		ballHitted = false;
 		
 		if (game.racquet.getBounds().intersects(getBounds())) {
 			
-			increments = 2;
+			increments = 1;
+			ballHitted = true;
+			
+			if ((x < (Racquet.x + (Racquet.WIDTH / 4))) || (x > (Racquet.x + ((Racquet.WIDTH / 4) * 3)))) {
+				
+				increments = (int) game.Ballspeed;
+				ballHitted = true;
+				
+			}
 			
 		}
 		
-		return game.racquet.getBounds().intersects(getBounds());
+		return ballHitted;
 
 	}
 

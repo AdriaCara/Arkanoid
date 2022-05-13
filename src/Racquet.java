@@ -10,7 +10,7 @@ public class Racquet extends JPanel{
 	static final int WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
 	private static final int HEIGHT = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	static int LIVES = 3;
-	double x = 0;
+	static double x = 0;
 	private int currentKeyCode;
 	double xa = 0;
 	private Game game;
@@ -115,19 +115,7 @@ public class Racquet extends JPanel{
 	
 	public Rectangle getBounds() {
 		
-		return new Rectangle((int)(x + WIDTH/4), Y, (WIDTH / 2), HEIGHT);
-		
-	}
-	
-	public Rectangle getBoundsOne() {
-		
-		return new Rectangle((int)x, Y, (WIDTH / 4), HEIGHT);
-		
-	}
-	
-	public Rectangle getBoundsFor() {
-		
-		return new Rectangle((int)(x + ((WIDTH / 4) * 3)), Y, (WIDTH  / 4), HEIGHT);
+		return new Rectangle((int)x, (int)Y, WIDTH, HEIGHT);
 		
 	}
 	
