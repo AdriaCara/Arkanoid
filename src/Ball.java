@@ -18,7 +18,6 @@ public class Ball extends JPanel {
 	static boolean yellowEfect = false;
 	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 100));
 	private Game game;
-	private Brick brick;
 	protected BufferedImage imagen;
 
 	public Ball(Game game) {
@@ -62,6 +61,7 @@ public class Ball extends JPanel {
 
 				ya = -game.Ballspeed;
 				y = game.racquet.getTopY() - (DIAMETER - 5);
+				
 				if (game.racquet.effectLeft) {
 
 					if (xa > 0) {
@@ -188,6 +188,12 @@ public class Ball extends JPanel {
 	}
 
 	private boolean collisionRacquet() {
+		
+		if (game.racquet.getBounds().intersects(getBounds())) {
+			
+			
+			
+		}
 		
 		return game.racquet.getBounds().intersects(getBounds());
 

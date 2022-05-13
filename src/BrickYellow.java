@@ -25,8 +25,8 @@ public class BrickYellow extends Brick {
 	public void paint(Graphics2D g) {
 
 		g.setColor(Color.YELLOW);
-		//g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
-		g.drawImage(imagen, (int)x, (int)y, WIDTH, HEIGHT, null);
+		// g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
+		g.drawImage(imagen, (int) x, (int) y, WIDTH, HEIGHT, null);
 
 	}
 
@@ -35,25 +35,31 @@ public class BrickYellow extends Brick {
 
 		Game.Score += 1;
 		Game.bricks.remove(i);
-		
-		  if (Game.RacquetSpeed < 8.5) {
-			  
-		      Ball.yellowEfect = false;
-			  Game.RacquetSpeed += 5;
-			  
-		  }
-		
-		ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
-		ScheduledFuture<?> efect = exec.scheduleAtFixedRate(new Runnable() {
-		  @Override
-		  public void run() {
-			  
-			  Game.RacquetSpeed -= 5;
-		      exec.shutdown();
-		    
-		  }
-		}, 10, 1, TimeUnit.SECONDS);
-		
+
+
+		new Thread(new Runnable() {
+			public void run() {
+
+				if ((Game.RacquetSpeed < 8.5) && (Ball.yellowEfect == false)) {
+					
+					Ball.yellowEfect = true;
+
+					Game.RacquetSpeed += 5;
+
+					try {
+						Thread.sleep(10000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+					Game.RacquetSpeed -= 5;
+					Ball.yellowEfect = false;
+
+				}
+
+			}
+		}).start();
+
 	}
 
 }

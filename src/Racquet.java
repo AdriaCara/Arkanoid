@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Racquet extends JPanel{
 
 	static int Y;
-	private static final int WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
+	static final int WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
 	private static final int HEIGHT = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	static int LIVES = 3;
 	double x = 0;
@@ -15,7 +15,7 @@ public class Racquet extends JPanel{
 	private Game game;
 	boolean effectLeft ;
 	boolean effectRight;
-	boolean menuEscape = false;
+	static boolean menuEscape = false;
 	static boolean invertedControls = false;
 	
 	public Racquet(Game game) {
@@ -108,6 +108,18 @@ public class Racquet extends JPanel{
 	public Rectangle getBounds() {
 		
 		return new Rectangle((int)x, Y, WIDTH, HEIGHT);
+		
+	}
+	
+	public Rectangle getBoundsOne() {
+		
+		return new Rectangle((int)x, Y, WIDTH, HEIGHT);
+		
+	}
+	
+	public Rectangle getBoundsFor() {
+		
+		return new Rectangle((int)x + WIDTH / 4, Y, WIDTH  / 4, HEIGHT);
 		
 	}
 	

@@ -98,6 +98,7 @@ public class MouseInput implements MouseListener{
 					Game.Score = 0;
 					Game.level --;
 					Racquet.LIVES = 3;
+					Racquet.menuEscape = false;
 					
 				}
 				
