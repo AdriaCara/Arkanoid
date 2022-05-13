@@ -31,8 +31,6 @@ public class Game extends JPanel {
 	}
 
 	public Game() {
-
-		setBackground(new Color(0,0,0));
 		
 		this.addMouseListener(new MouseInput());
 		addKeyListener(new KeyListener() {
@@ -76,10 +74,13 @@ public class Game extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
+		
+		super.paint(g);
 
 		if(State == STATE.GAME) {
 			
-			super.paint(g);
+			
+			setBackground(new Color(0,0,0));
 			Graphics2D g2d = (Graphics2D) g;
 			g2d.setColor(Color.WHITE);
 			g2d.setFont(new Font("arial", Font.BOLD, (int) (Toolkit.getDefaultToolkit().getScreenSize().width / 10)));
@@ -95,6 +96,7 @@ public class Game extends JPanel {
 			
 		} else if (State == STATE.MENU) {
 			
+			setBackground(new Color(0,0,0));
 			menu.render(g);
 			
 		} else if (State == STATE.MENUESCAPE){
@@ -112,6 +114,11 @@ public class Game extends JPanel {
 
 			}
 			menuEscape.render(g);
+			
+		} else if (State == STATE.HOWTOPLAY) {
+			
+			setBackground(new Color(50,65,74));
+			howToPlay.render(g);
 			
 		}
 	}

@@ -97,6 +97,20 @@ public class MouseInput implements MouseListener{
 				
 			}
 			
+		} else if (Game.State == Game.State.HOWTOPLAY) {
+			
+			//back Game.
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 20))))) {
+				
+				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 50))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 50))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
+					
+					//Pressed How To Play Button
+					Game.State = Game.State.MENU;
+					
+				}
+				
+			}
+			
 		}
 		
 	}
