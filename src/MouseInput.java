@@ -33,9 +33,9 @@ public class MouseInput implements MouseListener{
 		if (Game.State == Game.State.MENU) {
 			
 			//Start game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.6))) && (mx <= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.6)) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 14))))) {
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7))) && (mx <= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7)) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 7))))) {
 				
-				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 3))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 3))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
+				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 15))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 15))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))))) {
 					
 					//Pressed Play Button
 					Game.State = Game.State.GAME;
@@ -45,9 +45,9 @@ public class MouseInput implements MouseListener{
 			}
 			
 			//How To Play Game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.5))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.5))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.5))))) {
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 8))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 8))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))))) {
 				
-				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.7))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.7))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
+				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 5.5))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 5.5))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))))) {
 					
 					//Pressed How To Play Button
 					Game.State = Game.State.HOWTOPLAY;

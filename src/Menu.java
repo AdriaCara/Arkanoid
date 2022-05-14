@@ -29,10 +29,21 @@ public class Menu {
 		Font fontButton = new Font("arial", Font.BOLD, 30);
 		g.setColor(Color.WHITE);
 		g.setFont(fontButton);
-		g.drawString("Jugar", (playButton.x + (Toolkit.getDefaultToolkit().getScreenSize().width / 150)), ((int) (playButton.y + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))));
-		g2d.draw(playButton);
-		g.drawString("¿Como jugar?", (howToPlayButton.x + (Toolkit.getDefaultToolkit().getScreenSize().width / 160)), ((int) (howToPlayButton.y + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))));
-		g2d.draw(howToPlayButton);
+		
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("JUGAR.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 15)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 7))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))), null);
+		
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("COMO JUGAR.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 8)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 5.5)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))), null);
+		
 		g.drawString("Salir", quitButton.x + (Toolkit.getDefaultToolkit().getScreenSize().width / 150), ((int) (quitButton.y + (Toolkit.getDefaultToolkit().getScreenSize().height / 28))));
 		g2d.draw(quitButton);
 		
