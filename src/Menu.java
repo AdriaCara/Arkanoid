@@ -11,9 +11,6 @@ import javax.imageio.ImageIO;
 
 public class Menu {
 
-	public Rectangle playButton = new Rectangle(	(int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.6)), (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 3)), (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 14)), (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20)));
-	public Rectangle howToPlayButton = new Rectangle((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.5)), (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.7)), (int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.5)), (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20)));
-	public Rectangle quitButton = new Rectangle(	(int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.5)), (int) (Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.2)), (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 17)), (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20)));
 	public BufferedImage imagen;
 	
 	public void render(Graphics g) {
@@ -44,8 +41,12 @@ public class Menu {
 		}
 		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 8)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 5.5)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))), null);
 		
-		g.drawString("Salir", quitButton.x + (Toolkit.getDefaultToolkit().getScreenSize().width / 150), ((int) (quitButton.y + (Toolkit.getDefaultToolkit().getScreenSize().height / 28))));
-		g2d.draw(quitButton);
+		try {
+			imagen = ImageIO.read(BrickBlue.class.getResource("SALIR.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 7))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))), null);
 		
 	}
 	
