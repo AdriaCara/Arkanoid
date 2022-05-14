@@ -33,9 +33,9 @@ public class MouseInput implements MouseListener{
 		if (Game.State == Game.State.MENU) {
 			
 			//Start game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7))) && (mx <= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7)) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 7))))) {
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9))) && (mx <= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9)) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 10))))) {
 				
-				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 15))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 15))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))))) {
+				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 7))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 7))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))))) {
 					
 					//Pressed Play Button
 					Game.State = Game.State.GAME;
@@ -45,9 +45,9 @@ public class MouseInput implements MouseListener{
 			}
 			
 			//How To Play Game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 8))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 8))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))))) {
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.3))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.3))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))))) {
 				
-				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 5.5))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 5.5))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))))) {
+				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 4))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 4))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))))) {
 					
 					//Pressed How To Play Button
 					Game.State = Game.State.HOWTOPLAY;
@@ -57,9 +57,9 @@ public class MouseInput implements MouseListener{
 			}
 			
 			//Quit Game.
-			if ((mx >= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7)))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7))) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 7))))) {
+			if ((mx >= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9)))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9))) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 10))))) {
 				
-				if ((my >= (int)(Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 3))) && (my <= ((Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 3))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))))) {
+				if ((my >= (int)(Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2.8))) && (my <= ((Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2.8))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))))) {
 					
 					//Pressed Quit Button
 					System.exit(1);
@@ -71,7 +71,7 @@ public class MouseInput implements MouseListener{
 		} else if (Game.State == Game.State.MENUESCAPE) {
 			
 			//Start Game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.2))))) {
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.2))))) {
 				
 				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.9))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.9))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
 					

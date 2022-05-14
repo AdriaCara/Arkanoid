@@ -21,7 +21,7 @@ public class Menu {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 8)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1000)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 5))), null);
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.5)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1000)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))), null);
 		
 		Font fontButton = new Font("arial", Font.BOLD, 30);
 		g.setColor(Color.WHITE);
@@ -32,21 +32,21 @@ public class Menu {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 15)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 7))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))), null);
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 7)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 10))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))), null);
 		
 		try {
 			imagen = ImageIO.read(BrickBlue.class.getResource("COMO JUGAR.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 8)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 5.5)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))), null);
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.3)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 4)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))), null);
 		
 		try {
 			imagen = ImageIO.read(BrickBlue.class.getResource("SALIR.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5.7)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 3)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 7))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 3.3))), null);
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2.8)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 10))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))), null);
 		
 	}
 	
