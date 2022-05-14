@@ -7,15 +7,16 @@ import javax.swing.JPanel;
 public class Racquet extends JPanel{
 
 	static int Y;
-	private static final int WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
+	static final int WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
 	private static final int HEIGHT = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	static int LIVES = 3;
-	double x = 0;
+	static double x = 0;
+	private int currentKeyCode;
 	double xa = 0;
 	private Game game;
 	boolean effectLeft ;
 	boolean effectRight;
-	boolean menuEscape = false;
+	static boolean menuEscape = false;
 	static boolean invertedControls = false;
 	
 	public Racquet(Game game) {
@@ -51,8 +52,15 @@ public class Racquet extends JPanel{
 		effectRight = false;		
 	}
 	
+	public void keyRelease(KeyEvent e) {
+		
+		if (e.getExtendedKeyCode() == currentKeyCode) xa =0; 
+		
+	}
+	
 	public void KeyPressed(KeyEvent e) {
 		
+		currentKeyCode = e.getKeyCode();
 		if (!invertedControls) {
 			
 			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -107,7 +115,7 @@ public class Racquet extends JPanel{
 	
 	public Rectangle getBounds() {
 		
-		return new Rectangle((int)x, Y, WIDTH, HEIGHT);
+		return new Rectangle((int)x, (int)Y, WIDTH, HEIGHT);
 		
 	}
 	

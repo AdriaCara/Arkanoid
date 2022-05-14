@@ -14,7 +14,6 @@ public class BrickRed extends Brick{
 		try {
 			imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick2lifes.png"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -29,14 +28,13 @@ public class BrickRed extends Brick{
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick1life.png"));
 				
-			} else if (LIVES <= 0) {
+			} else if (LIVES <= 0 && Alive) {
 				
 				imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick0life.png"));
 				
 			}
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -48,9 +46,50 @@ public class BrickRed extends Brick{
 	
 	@Override
 	public void action(int i) {
-		
-		Game.Score += 2;
-		Alive = false;
+
+		new Thread(new Runnable() {
+			public void run() {
+
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				
+				Alive = false;
+				
+				for (int i = 2; i < 9; i++) {
+					
+					try {
+						imagen = ImageIO.read(BrickBlue.class.getResource("RedBrick0lifse_" + i + "fase.png"));
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+					if (i == 8) {
+						
+						i = 2;
+						
+					}
+					
+					if (y > Racquet.Y) {
+						
+						i = 100;
+						
+					}
+					
+				}
+				
+				Game.Score += 2;
+
+			}
+		}).start();
 		
 	}
 	

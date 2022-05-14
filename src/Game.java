@@ -19,6 +19,8 @@ public class Game extends JPanel {
 	static int level = 0;
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();
 	static Brick brick;
+	static boolean quit = false;
+	private boolean dead = false;
 	private Menu menu = new Menu();
 	private MenuEscape menuEscape = new MenuEscape();
 	private HowToPlay howToPlay = new HowToPlay();
@@ -31,8 +33,6 @@ public class Game extends JPanel {
 	}
 
 	public Game() {
-
-		setBackground(new Color(0,0,0));
 		
 		this.addMouseListener(new MouseInput());
 		addKeyListener(new KeyListener() {
@@ -67,6 +67,17 @@ public class Game extends JPanel {
 
 		if(State == STATE.GAME) {
 			
+			if (dead) {
+				
+				dead = false;
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+			}
+			
 			ball.move();
 			racquet.move();
 			
@@ -76,10 +87,13 @@ public class Game extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
+		
+		super.paint(g);
 
 		if(State == STATE.GAME) {
 			
-			super.paint(g);
+			
+			setBackground(new Color(0,0,0));
 			Graphics2D g2d = (Graphics2D) g;
 			g2d.setColor(Color.WHITE);
 			g2d.setFont(new Font("arial", Font.BOLD, (int) (Toolkit.getDefaultToolkit().getScreenSize().width / 10)));
@@ -95,11 +109,11 @@ public class Game extends JPanel {
 			
 		} else if (State == STATE.MENU) {
 			
+			setBackground(new Color(0,0,0));
 			menu.render(g);
 			
 		} else if (State == STATE.MENUESCAPE){
 			
-			super.paint(g);
 			Graphics2D g2d = (Graphics2D) g;
 			g2d.setColor(Color.WHITE);
 			g2d.setFont(new Font("arial", Font.BOLD, (int) (Toolkit.getDefaultToolkit().getScreenSize().width / 10)));
@@ -112,6 +126,11 @@ public class Game extends JPanel {
 
 			}
 			menuEscape.render(g);
+			
+		} else if (State == STATE.HOWTOPLAY) {
+			
+			setBackground(new Color(50,65,74));
+			howToPlay.render(g);
 			
 		}
 	}
@@ -142,6 +161,8 @@ public class Game extends JPanel {
 				ball.xa *= -1;
 
 			}
+			
+			dead = true;
 
 		}
 
@@ -149,38 +170,29 @@ public class Game extends JPanel {
 
 	public void win() {
 
-		if (bricks.size() <= 0) {
-
-			if (level == 0) {
-
-				level++;
-				Brick.createBricks(bricks, brick);
-
-				racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.5;
-
-				ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 15);
-				ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
-				if (ball.xa < 0) {
-
-					ball.xa *= -1;
-
-				}
-				if (ball.ya < 0) {
-					
-					ball.ya *= -1;
-					
-				}
-
-			} else {
-
-				Sounds.BgSound.stop();
-				JOptionPane.showMessageDialog(this, "Well done! your Score is: " + getScore(), "GG",
-						JOptionPane.YES_NO_OPTION);
-				System.exit(ABORT);
-
+		if (bricks.size() <= 0 || quit) {
+			
+			level++;
+			Brick.createBricks(bricks, brick);
+	
+			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.5;
+	
+			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 15);
+			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
+			if (ball.xa < 0) {
+	
+				ball.xa *= -1;
+	
 			}
+			if (ball.ya < 0) {
+				
+				ball.ya *= -1;
+				
+			}
+			quit = false;
 
 		}
+		
 	}
 	
 	public enum STATE {

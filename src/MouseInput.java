@@ -7,13 +7,10 @@ public class MouseInput implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -36,9 +33,9 @@ public class MouseInput implements MouseListener{
 		if (Game.State == Game.State.MENU) {
 			
 			//Start game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) && (mx <= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 14))))) {
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9))) && (mx <= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9)) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 10))))) {
 				
-				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 5.5))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 5.5))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
+				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 7))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 7))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))))) {
 					
 					//Pressed Play Button
 					Game.State = Game.State.GAME;
@@ -48,9 +45,9 @@ public class MouseInput implements MouseListener{
 			}
 			
 			//How To Play Game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.5))))) {
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.3))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.3))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))))) {
 				
-				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 2.3))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 2.3))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
+				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 4))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 4))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))))) {
 					
 					//Pressed How To Play Button
 					Game.State = Game.State.HOWTOPLAY;
@@ -60,9 +57,9 @@ public class MouseInput implements MouseListener{
 			}
 			
 			//Quit Game.
-			if ((mx >= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5)))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 17))))) {
+			if ((mx >= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9)))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4.9))) + ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 10))))) {
 				
-				if ((my >= (int)(Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.5))) && (my <= ((Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 1.5))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
+				if ((my >= (int)(Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2.8))) && (my <= ((Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2.8))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 30))))) {
 					
 					//Pressed Quit Button
 					System.exit(1);
@@ -74,7 +71,7 @@ public class MouseInput implements MouseListener{
 		} else if (Game.State == Game.State.MENUESCAPE) {
 			
 			//Start Game.
-			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.2))))) {
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 4))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.2))))) {
 				
 				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.9))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.9))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
 					
@@ -91,7 +88,28 @@ public class MouseInput implements MouseListener{
 				if ((my >= (int)(Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.75))) && (my <= ((Game.HEIGHT + ((int)Toolkit.getDefaultToolkit().getScreenSize().height / 2 / 0.75))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
 					
 					//Pressed Quit Button
-					System.exit(1);
+					Game.State = Game.State.MENU;
+					Game.quit = true;
+					Game.Ballspeed = 4;
+					Game.RacquetSpeed = 6;
+					Game.Score = 0;
+					Game.level --;
+					Racquet.LIVES = 3;
+					Racquet.menuEscape = false;
+					
+				}
+				
+			}
+			
+		} else if (Game.State == Game.State.HOWTOPLAY) {
+			
+			//back Game.
+			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 20))))) {
+				
+				if ((my >= (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 50))) && (my <= ((int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 50))) + ((Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))))) {
+					
+					//Pressed How To Play Button
+					Game.State = Game.State.MENU;
 					
 				}
 				
@@ -103,14 +121,10 @@ public class MouseInput implements MouseListener{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 

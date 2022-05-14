@@ -8,17 +8,18 @@ import java.io.IOException;
 
 public class Ball extends JPanel {
 
-	private static final int DIAMETER = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30));;
+	private static final int DIAMETER = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 30));
 	double x = Math.random() * (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
 	double y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
 	static double xa = ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 800));
 	static double ya = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 1066));
 	boolean down = false;
 	boolean onlyLess = false;
+	private boolean ballHitted;
+	private int increments = 1;
 	static boolean yellowEfect = false;
-	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 100));
+	double brickMove = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	private Game game;
-	private Brick brick;
 	protected BufferedImage imagen;
 
 	public Ball(Game game) {
@@ -62,15 +63,16 @@ public class Ball extends JPanel {
 
 				ya = -game.Ballspeed;
 				y = game.racquet.getTopY() - (DIAMETER - 5);
+				
 				if (game.racquet.effectLeft) {
 
 					if (xa > 0) {
 
-						xa *= -1;
+						xa *= -increments;
 
 					} else {
 						
-						xa *= 1;
+						xa *= increments;
 						
 					}
 
@@ -78,11 +80,11 @@ public class Ball extends JPanel {
 
 					if (xa < 0) {
 
-						xa *= -1;
+						xa *= -increments;
 
 					} else {
 						
-						xa *= 1;
+						xa *= increments;
 						
 					}
 
@@ -188,8 +190,24 @@ public class Ball extends JPanel {
 	}
 
 	private boolean collisionRacquet() {
+	
+		ballHitted = false;
 		
-		return game.racquet.getBounds().intersects(getBounds());
+		if (game.racquet.getBounds().intersects(getBounds())) {
+			
+			increments = 1;
+			ballHitted = true;
+			
+			if ((x < (Racquet.x + (Racquet.WIDTH / 4))) || (x > (Racquet.x + ((Racquet.WIDTH / 4) * 3)))) {
+				
+				increments = (int) game.Ballspeed;
+				ballHitted = true;
+				
+			}
+			
+		}
+		
+		return ballHitted;
 
 	}
 
