@@ -171,7 +171,6 @@ public class Ball extends JPanel {
 			xa *= -1;
 			
 		}
-		Sounds.BallSound.play();
 		if (game.bricks.get(i).Alive) {
 			
 			if (game.bricks.get(i).LIVES <= 1) {

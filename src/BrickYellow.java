@@ -52,7 +52,12 @@ public class BrickYellow extends Brick {
 						e.printStackTrace();
 					}
 
-					Game.RacquetSpeed -= 5;
+					if (!MouseInput.restart) {
+						
+						Game.RacquetSpeed -= 5;
+						MouseInput.restart = false;
+						
+					}
 					Ball.yellowEfect = false;
 
 				}
