@@ -81,6 +81,19 @@ public class Game extends JPanel {
 			ball.move();
 			racquet.move();
 			
+		} else if (State == STATE.MENUESCAPE) {
+			
+			if (racquet.WIDTH > ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9)) / 2)) {
+				
+				racquet.move();
+				if (racquet.effectLeft || racquet.effectRight) {
+					
+					racquet.WIDTH -= ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 1000000000)));
+					
+				}
+				
+			}
+			
 		}
 
 	}

@@ -98,6 +98,7 @@ public class MouseInput implements MouseListener{
 					Game.level --;
 					Racquet.LIVES = 3;
 					Racquet.menuEscape = false;
+					Racquet.WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
 					restart = true;
 					
 				}
