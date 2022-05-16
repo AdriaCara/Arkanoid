@@ -4,6 +4,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class MouseInput implements MouseListener{
+	
+	public static boolean restart = false;
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -11,7 +13,6 @@ public class MouseInput implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		
 	}
 
 	@Override
@@ -89,6 +90,7 @@ public class MouseInput implements MouseListener{
 					
 					//Pressed Quit Button
 					Game.State = Game.State.MENU;
+					Game.bricks.clear();
 					Game.quit = true;
 					Game.Ballspeed = 4;
 					Game.RacquetSpeed = 6;
@@ -96,6 +98,8 @@ public class MouseInput implements MouseListener{
 					Game.level --;
 					Racquet.LIVES = 3;
 					Racquet.menuEscape = false;
+					Racquet.WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
+					restart = true;
 					
 				}
 				

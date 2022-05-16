@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Racquet extends JPanel{
 
 	static int Y;
-	static final int WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
+	static int WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
 	private static final int HEIGHT = ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 150));
 	static int LIVES = 3;
 	static double x = 0;

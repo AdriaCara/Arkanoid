@@ -21,7 +21,7 @@ public class Menu {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.5)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 1000)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))), null);
+		g.drawImage(imagen, (int)(Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 6.5)), (int)(Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 90)), ((int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 5))), ((int) ((Game.HEIGHT) + (Toolkit.getDefaultToolkit().getScreenSize().height / 20))), null);
 		
 		Font fontButton = new Font("arial", Font.BOLD, 30);
 		g.setColor(Color.WHITE);
