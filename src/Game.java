@@ -181,14 +181,17 @@ public class Game extends JPanel {
 		}
 	}
 
+	//Game over.
 	public void gameOver() {
 
+		//If ball only less one live.
 		if (ball.onlyLess) {
 
 			racquet.LIVES -= racquet.LIVES;
 
 		}
 
+		//If the racquet no have lifes then throw game over or reset the position of the ball and the racquet.
 		if (racquet.RacquetNoHaveLives()) {
 
 			Sounds.BgSound.stop();
@@ -214,8 +217,10 @@ public class Game extends JPanel {
 
 	}
 
+	//Win.
 	public void win() {
 
+		//If there are less or 0 brick's or quit then level increments, generates new brick's, reset the ball and racquet.  
 		if (bricks.size() <= 0 || quit) {
 			
 			level++;
@@ -241,6 +246,7 @@ public class Game extends JPanel {
 		
 	}
 	
+	//Sate.
 	public enum STATE {
 		
 		MENU,
@@ -250,6 +256,7 @@ public class Game extends JPanel {
 		
 	}
 
+	//Game, generates brick's, generates the game size, the color, the fixed size.
 	public static void StartGame() throws InterruptedException {
 
 		Brick.createBricks(bricks, brick);
