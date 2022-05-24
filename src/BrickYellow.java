@@ -12,6 +12,7 @@ import javax.management.timer.Timer;
 
 public class BrickYellow extends Brick {
 
+	//Constructor.
 	public BrickYellow(double X, double Y, Game game) {
 		super(1, X, Y, game, true);
 		try {
@@ -21,6 +22,7 @@ public class BrickYellow extends Brick {
 		}
 	}
 
+	//Paint.
 	@Override
 	public void paint(Graphics2D g) {
 
