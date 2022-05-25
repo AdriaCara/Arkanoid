@@ -18,12 +18,13 @@ public class Game extends JPanel {
 	static double RacquetSpeed = 6; //Set the ball Speed to 6;
 	static int Score = 0; //Set the Score to 0.
 	static int level = 0; //Set the Level to 0.
+	String user; //User name.
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();// Array of bricks.
 	static Brick brick; //Object Brick.
 	static boolean quit = false; //Set control of quit botton of the pause menu.
 	private boolean dead = false; //Set dead control.
 	private Menu menu = new Menu(); //Object Menu.
-	private GameScore gameScore = new GameScore();
+	private GameScore gameScore = new GameScore("score.json");
 	private MenuEscape menuEscape = new MenuEscape(); //Object Menu when the game are paused.
 	private HowToPlay howToPlay = new HowToPlay(); //Object option menu that shows how to play.
 	public static STATE State = STATE.MENU; //Object menu.
@@ -200,6 +201,7 @@ public class Game extends JPanel {
 			Sounds.BgSound.stop();
 			Sounds.GameOverSound.play();
 			JOptionPane.showMessageDialog(this, "your score is: " + getScore(), "Game Over", JOptionPane.YES_NO_OPTION);
+			user = JOptionPane.showInputDialog("Nombre Usuario");
 			System.exit(ABORT);
 
 		} else {
