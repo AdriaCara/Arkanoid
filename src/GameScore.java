@@ -13,13 +13,72 @@ import org.json.simple.parser.ParseException;
 
 public class GameScore {
 	
-	public void render(Graphics g) {
+	private String url;
+	
+	private JSONObject jsonObject;
+	
+	private JSONArray data;
+	
+	public GameScore(String url)  {
+		
+		this.url = url;
+		
+		try {
+			FileReader read = new FileReader(url);
+			JSONParser parser = new JSONParser();
+			
+			jsonObject = (JSONObject) parser.parse(read);
+			data = (JSONArray) jsonObject.get("userScores");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
 	}
 	
-	private void readJson() {
+	public String[] getNames() {
+		
+		String[] names = new String [data.size()];
+		
+		for(int i = 0; i < data.size(); i++) {
+			
+			JSONObject user = (JSONObject) data.get(i);
+			names[i] = String.valueOf(user.get("name"));
+			
+		}
+		
+		
+		return names;
+		
+	}
+	
+	public int getScore(String name) {
+		
+		for(int i = 0; i < data.size(); i++) {
+			
+			JSONObject user = (JSONObject) data.get(i);
+			
+			if (String.valueOf(user.get("name")).equals(name)) {
+				
+				String score = String.valueOf("score");
+				return Integer.parseInt(score);
+				
+			}
+			
+		}
+		
+		return 0;
+		
+	}
+	
+	/*private void readJson() {
 		
 		try {
 			JSONParser parser = new JSONParser();
@@ -40,7 +99,7 @@ public class GameScore {
 				long y = (long) coord.get("y");
 				
 				String color = (String) brick.get("color");
-				/*
+				
 				 * JSON Structure
 				 * {"bricks":[
 				 * 				{
@@ -66,7 +125,7 @@ public class GameScore {
 				 * 				},
 				 * }
 				 * 
-				 * */
+				 * 
 				
 				
 			}
@@ -83,6 +142,6 @@ public class GameScore {
 		
 		
 		
-	}
+	}*/
 
 }
