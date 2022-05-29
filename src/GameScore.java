@@ -1,14 +1,12 @@
-import java.awt.Graphics;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+import java.text.ParseException;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 
 public class GameScore {
@@ -29,12 +27,13 @@ public class GameScore {
 			
 			jsonObject = (JSONObject) parser.parse(read);
 			data = (JSONArray) jsonObject.get("userScores");
+			System.out.println(data.size());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ParseException e) {
+		} catch (org.json.simple.parser.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -67,14 +66,60 @@ public class GameScore {
 			
 			if (String.valueOf(user.get("name")).equals(name)) {
 				
-				String score = String.valueOf("score");
+				String score = String.valueOf(user.get("score"));
 				return Integer.parseInt(score);
 				
 			}
 			
 		}
 		
-		return 0;
+		return -1;
+		
+	}
+	
+	public JSONObject getUser(String userName) {
+		
+		for (int i = 0; i < data.size(); i++) {
+			
+			JSONObject user = (JSONObject) data.get(i);
+			
+			if (String.valueOf(user.get("name")).equals(userName)) {
+				
+				return user;
+				
+			}
+			
+		}
+		
+		return null;
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void saveScore(String userName, int score) {
+		
+		JSONObject user = getUser(userName);
+		
+		if (user == null) {
+			
+			user= new JSONObject();
+			
+			user.put("name", userName);
+			user.put("score", score);
+			
+			data.add(user);
+			
+		} else {
+			
+			user.put("score", score);
+			
+		}
+		
+		try {
+			FileWriter writer = new FileWriter(url);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	

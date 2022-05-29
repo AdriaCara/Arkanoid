@@ -24,7 +24,6 @@ public class Game extends JPanel {
 	static boolean quit = false; //Set control of quit botton of the pause menu.
 	private boolean dead = false; //Set dead control.
 	private Menu menu = new Menu(); //Object Menu.
-	private GameScore gameScore = new GameScore("score.json");
 	private MenuEscape menuEscape = new MenuEscape(); //Object Menu when the game are paused.
 	private HowToPlay howToPlay = new HowToPlay(); //Object option menu that shows how to play.
 	public static STATE State = STATE.MENU; //Object menu.
@@ -177,10 +176,8 @@ public class Game extends JPanel {
 			
 		} else if (State == STATE.HOWTOPLAY) {
 			
-			//setBackground(new Color(50,65,74));
-			//howToPlay.render(g);
-			
-			
+			setBackground(new Color(50,65,74));
+			howToPlay.render(g);
 			
 		}
 	}
