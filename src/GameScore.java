@@ -1,15 +1,16 @@
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
-import java.io.File;
+import java.awt.Toolkit;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+import java.text.ParseException;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 
 public class GameScore {
 	
@@ -24,6 +25,7 @@ public class GameScore {
 		this.url = url;
 		
 		try {
+			
 			FileReader read = new FileReader(url);
 			JSONParser parser = new JSONParser();
 			
@@ -34,7 +36,7 @@ public class GameScore {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ParseException e) {
+		} catch (org.json.simple.parser.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -65,83 +67,67 @@ public class GameScore {
 			
 			JSONObject user = (JSONObject) data.get(i);
 			
-			if (String.valueOf(user.get("name")).equals(name)) {
+			if (String.valueOf(user.get("name")).equalsIgnoreCase(name)) {
 				
-				String score = String.valueOf("score");
+				String score = String.valueOf(user.get("score"));
 				return Integer.parseInt(score);
 				
 			}
 			
 		}
 		
-		return 0;
+		return -1;
 		
 	}
 	
-	/*private void readJson() {
+	public JSONObject getUser(String userName) {
 		
-		try {
-			JSONParser parser = new JSONParser();
-			JSONArray brickList;
-			JSONObject brick;
-			JSONObject coord;
-
-			Object object;
-			object = parser.parse(new FileReader("Bricks.json"));
+		for (int i = 0; i < data.size(); i++) {
 			
-			JSONObject jsonObject = (JSONObject) object;
-			brickList = (JSONArray) jsonObject.get("bricks");
-			for (int i = 0; i < brickList.size(); i++) {
+			JSONObject user = (JSONObject) data.get(i);
+			
+			if (String.valueOf(user.get("name")).equalsIgnoreCase(userName)) {
 				
-				brick = (JSONObject) brickList.get(i);
-				coord = (JSONObject) brick.get("coords");
-				long x = (long) coord.get("x");
-				long y = (long) coord.get("y");
-				
-				String color = (String) brick.get("color");
-				
-				 * JSON Structure
-				 * {"bricks":[
-				 * 				{
-				 * 					"coords": {
-				 * 								"x": 0,
-				 * 								"y": 0	
-				 * 					},
-				 * 					"color": "blau"
-				 * 				},
-				 *  			{
-				 * 					"coords": {
-				 * 								"x": 20,
-				 * 								"y": 40	
-				 * 					},
-				 * 					"color": "vermell"
-				 * 				},
-				 * 				{
-				 * 					"coords": {
-				 * 								"x": 20,
-				 * 								"y": 20	
-				 * 					},
-				 * 					"color": "blau"
-				 * 				},
-				 * }
-				 * 
-				 * 
-				
+				return user;
 				
 			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+		}
+		
+		return null;
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void saveScore(String userName, int score) {
+		
+		JSONObject user = getUser(userName);
+		
+		if (user == null) {
+			
+			user= new JSONObject();
+			
+			user.put("name", userName);
+			user.put("score", score);
+			
+			data.add(user);
+			
+		} else {
+			
+			user.put("score", score);
+			
+		}
+		
+		try {
+			
+			FileWriter writer = new FileWriter(url);
+			writer.write(jsonObject.toJSONString());
+			
+			writer.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
-		
-	}*/
-
+	}
+	
 }

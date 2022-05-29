@@ -24,9 +24,9 @@ public class Game extends JPanel {
 	static boolean quit = false; //Set control of quit botton of the pause menu.
 	private boolean dead = false; //Set dead control.
 	private Menu menu = new Menu(); //Object Menu.
-	private GameScore gameScore = new GameScore("score.json");
 	private MenuEscape menuEscape = new MenuEscape(); //Object Menu when the game are paused.
 	private HowToPlay howToPlay = new HowToPlay(); //Object option menu that shows how to play.
+	private GameScore datos = new GameScore("Scores.json");
 	public static STATE State = STATE.MENU; //Object menu.
 
 	//Get the Score.
@@ -177,10 +177,13 @@ public class Game extends JPanel {
 			
 		} else if (State == STATE.HOWTOPLAY) {
 			
-			//setBackground(new Color(50,65,74));
-			//howToPlay.render(g);
+			setBackground(new Color(50,65,74));
+			howToPlay.render(g);
 			
+		} else if (State == STATE.GAMESCORE) {
 			
+			setBackground(new Color(50,65,74));
+			render(g);
 			
 		}
 	}
@@ -198,11 +201,10 @@ public class Game extends JPanel {
 		//If the racquet no have lifes then throw game over or reset the position of the ball and the racquet.
 		if (racquet.RacquetNoHaveLives()) {
 
-			Sounds.BgSound.stop();
 			Sounds.GameOverSound.play();
-			JOptionPane.showMessageDialog(this, "your score is: " + getScore(), "Game Over", JOptionPane.YES_NO_OPTION);
-			user = JOptionPane.showInputDialog("Nombre Usuario");
-			System.exit(ABORT);
+			user = JOptionPane.showInputDialog("Nombre Jugador Puntos: " + getScore());
+			State = State.GAMESCORE;
+			racquet.LIVES = 3;
 
 		} else {
 
@@ -258,7 +260,7 @@ public class Game extends JPanel {
 		GAME,
 		MENUESCAPE,
 		HOWTOPLAY,
-		GameScore
+		GAMESCORE
 		
 	}
 
@@ -288,6 +290,31 @@ public class Game extends JPanel {
 				Thread.sleep(10);
 
 		}
+
+	}
+	
+	public void render(Graphics g) {
+		
+		double y = 3.1;
+		
+		Font fontTitle = new Font("arial", Font.BOLD, 50);
+		g.setFont(fontTitle);
+		g.setColor(Color.WHITE);
+		g.drawString("Puntuación Global", (WIDTH / 2) + (Toolkit.getDefaultToolkit().getScreenSize().width / 9), HEIGHT + 50);
+		
+		String[] names = datos.getNames();
+		for (int i = 0; i < names.length; i++) {
+			
+			String nom = names[i];
+			int score = datos.getScore(nom);
+			String scoreString = Integer.toString(score);
+			
+			g.drawString(nom, (int)(WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 9)), (int)(HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / y)));
+			g.drawString(scoreString, (int)(WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 3)), (int)(HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / y)));
+			
+			y += y - 2;
+			
+		}		
 
 	}
 
