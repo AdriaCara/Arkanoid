@@ -13,16 +13,7 @@ public class main {
 	//Principal function.
 	public void principal() throws InterruptedException {
 		
-		GameScore datos = new GameScore("Scores.json");
-		String[] names = datos.getNames();
-		for (int i = 0; i < names.length; i++) {
-			
-			String nom = names[i];
-			int score = datos.getScore(nom);
-			
-			System.out.print("Nom: " + nom + " Puntuació: " + score);
-			
-		}
+		Game.StartGame();
 		
 	}
 

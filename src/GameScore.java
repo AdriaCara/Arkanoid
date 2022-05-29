@@ -1,3 +1,4 @@
+import java.awt.Graphics2D;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -22,12 +23,12 @@ public class GameScore {
 		this.url = url;
 		
 		try {
+			
 			FileReader read = new FileReader(url);
 			JSONParser parser = new JSONParser();
 			
 			jsonObject = (JSONObject) parser.parse(read);
 			data = (JSONArray) jsonObject.get("userScores");
-			System.out.println(data.size());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -36,6 +37,21 @@ public class GameScore {
 		} catch (org.json.simple.parser.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+	}
+	
+	public void render(Graphics2D G) {
+		
+		GameScore datos = new GameScore("Scores.json");
+		String[] names = datos.getNames();
+		for (int i = 0; i < names.length; i++) {
+			
+			String nom = names[i];
+			int score = datos.getScore(nom);
+			
+			System.out.println("Nom: " + nom + " Puntuació: " + score);
+			
 		}
 		
 		
@@ -64,7 +80,7 @@ public class GameScore {
 			
 			JSONObject user = (JSONObject) data.get(i);
 			
-			if (String.valueOf(user.get("name")).equals(name)) {
+			if (String.valueOf(user.get("name")).equalsIgnoreCase(name)) {
 				
 				String score = String.valueOf(user.get("score"));
 				return Integer.parseInt(score);
@@ -83,7 +99,7 @@ public class GameScore {
 			
 			JSONObject user = (JSONObject) data.get(i);
 			
-			if (String.valueOf(user.get("name")).equals(userName)) {
+			if (String.valueOf(user.get("name")).equalsIgnoreCase(userName)) {
 				
 				return user;
 				
@@ -116,7 +132,11 @@ public class GameScore {
 		}
 		
 		try {
+			
 			FileWriter writer = new FileWriter(url);
+			writer.write(jsonObject.toJSONString());
+			
+			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
