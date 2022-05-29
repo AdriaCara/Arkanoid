@@ -95,7 +95,7 @@ public class MouseInput implements MouseListener{
 					Game.Ballspeed = 4;
 					Game.RacquetSpeed = 6;
 					Game.Score = 0;
-					Game.level --;
+					Game.level = 0;
 					Racquet.LIVES = 3;
 					Racquet.menuEscape = false;
 					Racquet.WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
@@ -105,7 +105,7 @@ public class MouseInput implements MouseListener{
 				
 			}
 			
-		} else if (Game.State == Game.State.HOWTOPLAY) {
+		} else if (Game.State == Game.State.HOWTOPLAY || Game.State == Game.State.GAMESCORE) {
 			
 			//back Game.
 			if ((mx >= (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70))) && (mx <= ((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70))) + ((int) (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 20))))) {
