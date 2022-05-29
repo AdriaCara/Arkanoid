@@ -1,4 +1,7 @@
-import java.awt.Graphics2D;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -8,7 +11,6 @@ import java.text.ParseException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 
 public class GameScore {
 	
@@ -37,21 +39,6 @@ public class GameScore {
 		} catch (org.json.simple.parser.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-	}
-	
-	public void render(Graphics2D G) {
-		
-		GameScore datos = new GameScore("Scores.json");
-		String[] names = datos.getNames();
-		for (int i = 0; i < names.length; i++) {
-			
-			String nom = names[i];
-			int score = datos.getScore(nom);
-			
-			System.out.println("Nom: " + nom + " Puntuació: " + score);
-			
 		}
 		
 		
@@ -143,70 +130,4 @@ public class GameScore {
 		
 	}
 	
-	/*private void readJson() {
-		
-		try {
-			JSONParser parser = new JSONParser();
-			JSONArray brickList;
-			JSONObject brick;
-			JSONObject coord;
-
-			Object object;
-			object = parser.parse(new FileReader("Bricks.json"));
-			
-			JSONObject jsonObject = (JSONObject) object;
-			brickList = (JSONArray) jsonObject.get("bricks");
-			for (int i = 0; i < brickList.size(); i++) {
-				
-				brick = (JSONObject) brickList.get(i);
-				coord = (JSONObject) brick.get("coords");
-				long x = (long) coord.get("x");
-				long y = (long) coord.get("y");
-				
-				String color = (String) brick.get("color");
-				
-				 * JSON Structure
-				 * {"bricks":[
-				 * 				{
-				 * 					"coords": {
-				 * 								"x": 0,
-				 * 								"y": 0	
-				 * 					},
-				 * 					"color": "blau"
-				 * 				},
-				 *  			{
-				 * 					"coords": {
-				 * 								"x": 20,
-				 * 								"y": 40	
-				 * 					},
-				 * 					"color": "vermell"
-				 * 				},
-				 * 				{
-				 * 					"coords": {
-				 * 								"x": 20,
-				 * 								"y": 20	
-				 * 					},
-				 * 					"color": "blau"
-				 * 				},
-				 * }
-				 * 
-				 * 
-				
-				
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
-	}*/
-
 }
