@@ -18,6 +18,7 @@ public class Game extends JPanel {
 	static double RacquetSpeed = 6; //Set the ball Speed to 6;
 	static int Score = 0; //Set the Score to 0.
 	static int level = 0; //Set the Level to 0.
+	int scoreUser = 0;
 	String user; //User name.
 	static ArrayList<Brick> bricks = new ArrayList<Brick>();// Array of bricks.
 	static Brick brick; //Object Brick.
@@ -203,24 +204,36 @@ public class Game extends JPanel {
 
 			Sounds.GameOverSound.play();
 			user = JOptionPane.showInputDialog("Nombre Jugador Puntos: " + getScore());
-			State = State.GAMESCORE;
-			racquet.LIVES = 3;
-
-		} else {
-
-			racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.4;
-
-			ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 7);
-			ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
-			if (ball.xa < 0) {
-
-				ball.xa *= -1;
-
+			if (user.equals("")) {
+				
+				user = "anonimo";
+				
 			}
+			State = State.GAMESCORE;	
+			bricks.clear();
+			Ballspeed = 4;
+			RacquetSpeed = 6;
+			scoreUser = Score;
+			Score = 0;
+			level = 0;
+			racquet.LIVES = 3;
+			racquet.WIDTH = (int) ((Game.WIDTH) + (Toolkit.getDefaultToolkit().getScreenSize().width / 12.9));
+			brick.createBricks(bricks, brick);
 			
-			dead = true;
 
 		}
+
+		racquet.x = Toolkit.getDefaultToolkit().getScreenSize().width / 2 / 2.4;
+
+		ball.x = (Toolkit.getDefaultToolkit().getScreenSize().width / 7);
+		ball.y = (Toolkit.getDefaultToolkit().getScreenSize().height / 1.5);
+		if (ball.xa < 0) {
+
+			ball.xa *= -1;
+
+		}
+		
+		dead = true;
 
 	}
 
@@ -295,14 +308,41 @@ public class Game extends JPanel {
 	
 	public void render(Graphics g) {
 		
-		double y = 3.1;
+		String[] names = datos.getNames();
+		if (names.length <= 10) {
+			
+			datos.saveScore(user, scoreUser);
+			
+		} else {
+			
+			for (int i = 0; i < names.length; i++) {
+				
+				String nom = names[i];
+				int score = datos.getScore(nom);
+				
+				if (score > scoreUser) {
+					
+					datos.saveScore(user, scoreUser);
+					
+				}
+				
+			}
+			
+		}
+		double y = 8;
+		Graphics2D g2d = (Graphics2D) g;
+		Rectangle backButton = new Rectangle((Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 70)), (int) (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 50)), (Game.WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 20)), (Game.HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / 20)));
 		
 		Font fontTitle = new Font("arial", Font.BOLD, 50);
 		g.setFont(fontTitle);
 		g.setColor(Color.WHITE);
 		g.drawString("Puntuación Global", (WIDTH / 2) + (Toolkit.getDefaultToolkit().getScreenSize().width / 9), HEIGHT + 50);
 		
-		String[] names = datos.getNames();
+		Font fontButton = new Font("arial", Font.BOLD, 30);
+		g.setFont(fontButton);
+		g.drawString("<<", (backButton.x + (Toolkit.getDefaultToolkit().getScreenSize().width / 85)), ((int) (backButton.y + (Toolkit.getDefaultToolkit().getScreenSize().height / 28))));
+		g2d.draw(backButton);
+		
 		for (int i = 0; i < names.length; i++) {
 			
 			String nom = names[i];
@@ -312,7 +352,7 @@ public class Game extends JPanel {
 			g.drawString(nom, (int)(WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 9)), (int)(HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / y)));
 			g.drawString(scoreString, (int)(WIDTH + (Toolkit.getDefaultToolkit().getScreenSize().width / 3)), (int)(HEIGHT + (Toolkit.getDefaultToolkit().getScreenSize().height / y)));
 			
-			y += y - 2;
+			y -= (2 / ((i * (0.8))+ 1));
 			
 		}		
 
